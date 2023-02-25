@@ -8,6 +8,6 @@ urlpatterns = [
     path('prescription', prescription, name='prescription'),
     path('progress', progress, name='progress'),
     path('medical-report', medical, name='medical-report'),
-    path('pdf', view_pdf, name='view_pdf'),
+
     # other URL patterns...
 ]

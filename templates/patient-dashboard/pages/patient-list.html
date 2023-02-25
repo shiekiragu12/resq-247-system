@@ -70,9 +70,11 @@
 											{{patient.dob}}
 										</td>
 										<td class="text-primary">
-											<a href="{% url 'patient:view_pdf' %}" target="_blank">Preview PDF</a>
-											<a href="{% url 'patient:view_pdf' %}?download=1">Download PDF</a>
-											<a href="{% url 'patient:share_pdf' %}?url={{ request.build_absolute_uri|urlencode }}" target="_blank">Share PDF</a>
+											
+											<a href="{% get_media_prefix %}prescription/prescription.pdf
+											" target="_blank">Download PDF</a>
+											
+											
 
 										</td>
 										<td>
