@@ -5842,6 +5842,9 @@ Page Title Area CSS
 .page-title-area.item-bg-14 {
   background-image: url(../img/analytic.jpg);
 }
+.page-title-area.item-bg-15  {
+  background-image: url(../img/health-services.jpg);
+}
 .page-title-area::before {
   content: '';
   position: absolute;
