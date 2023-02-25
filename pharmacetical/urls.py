@@ -19,5 +19,10 @@ urlpatterns = [
     path('pharmacy-report', pharmacy_report, name='pharmacy-report'),
     path('send_order_email', send_order_email, name='send_order_email'),
     path('prescription-orders', prescription_orders, name='prescription-orders'),
-    
+    path('prescription-orders', prescription_orders, name='prescription-orders'),
+    path('product-modal', modal_view, name='product-modal'),
+    path('product-modal-redirect', modal_view_redirect,
+         name='product-modal-redirect'),
+
+
 ]

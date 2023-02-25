@@ -1,0 +1,92 @@
+{% extends './../components/base.html' %}
+{% load humanize %}
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+      }
+      
+      .container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 60vh;
+			background-color: black;
+		}
+.modal {
+    background-color: white;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+
+			
+}
+
+/* Style for the modal content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  text-align: center;
+}
+
+/* Style for the buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.yes-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.no-button {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Hover effect for the buttons */
+.yes-button:hover, .no-button:hover {
+  opacity: 0.8;
+}
+
+</style>
+<div class="content-body">
+	<!-- row -->
+	<div class="container-fluid">
+		<div class="form-head d-flex mb-3 mb-md-4 align-items-start">
+			<div class="me-auto d-none d-lg-block">
+				<h3 class="text-black font-w600">Welcome {{request.user.username}}</h3>
+			</div>
+			
+		<div class="container">
+                    <p>Do you want to add another product?</p>
+                    <div class="modal-buttons">
+                      <button class="yes-button"onclick="location.href='{%url 'pharmacetical:product-modal-redirect'%}'">Yes</button>
+                      <button class="no-button"onclick="location.href='{%url 'pharmacetical:dashboard'%}'">No</button>
+                    </div>
+                  
+            </div>
+
+</div>
+
+{% endblock %}
+
+

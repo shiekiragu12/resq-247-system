@@ -20,12 +20,12 @@ def create_pharmacy(request):
         number = request.POST.get('number')
         alternative_number = request.POST.get('alternative_number')
         created_on = request.POST.get('created_on')
-        attach= request.FILES.get('image')
+        attach = request.FILES.get('image')
         subject = 'Form submission received'
         body = 'Thank you for submitting the form your form is currently underreview'
         email = EmailMessage(subject, body, to=[request.POST['email']])
         email.send()
-        
+
         existingpharmacy = Pharmacy.objects.filter(
             pharma_name=pharma_name).exists()
 
@@ -33,17 +33,19 @@ def create_pharmacy(request):
 
         pharmacy = Pharmacy(first_name=first_name, last_name=last_name, pharma_name=pharma_name,
                             location=location, licence=licence, email=email, alternative_email=alternative_email, number=number, alternative_number=alternative_number, date_created=created_on, attach=attach)
-        
+
         pharmacy.save()
-        messages.success(request, 'Pharmacy created successfully wait for approval')
+        messages.success(
+            request, 'Pharmacy created successfully wait for approval')
         return redirect('index')
 
     return render(request, template_name='pharmacy/verification-form.html', context={})
 
+
 def send_order_email(request):
     # Get the user's email address from the request
     email = request.POST.get('email')
-    
+
     # Send the email
     send_mail(
         'Order Confirmation',
@@ -52,7 +54,7 @@ def send_order_email(request):
         [email],
         fail_silently=False,
     )
-    context={}
+    context = {}
     context['patients'] = Patient.objects.all()
     # Render a template to display a confirmation message to the user
     return render(request, template_name='pharmacy-dashboard/pages/prescription-orders.html', context=context)
@@ -61,50 +63,68 @@ def send_order_email(request):
 def pharmacy_dashboard(request):
     return render(request, template_name='pharmacy-dashboard/pages/index.html', context={})
 
+
 def upload_product(request):
     return render(request, template_name='pharmacy-dashboard/pages/pharmacy-index.html', context={})
 
+
+def modal_view(request):
+    return render(request, template_name='pharmacy-dashboard/pages/product_modal.html', context={})
+
+
+def modal_view_redirect(request):
+    return redirect('pharmacetical:upload-product')
+
+
 def live_product(request):
-    context ={}
+    context = {}
     context['live'] = Product.objects.filter(live_product=True)
     return render(request, template_name='pharmacy-dashboard/pages/live-product.html', context=context)
 
+
 def pending_product(request):
-    context ={}
+    context = {}
     context['unapproved_products'] = Product.objects.filter(approved=False)
     return render(request, template_name='pharmacy-dashboard/pages/pending-product.html', context=context)
 
+
 def pending_orders(request):
-    context ={}
+    context = {}
     context['unapproved_orders'] = Product.objects.filter(approved_order=False)
     return render(request, template_name='pharmacy-dashboard/pages/pending-orders.html', context=context)
+
 
 def product_detail(request):
     return render(request, template_name='pharmacy-dashboard/pages/product-detail.html', context={})
 
 
 def prescription_orders(request):
-    context={}
+    context = {}
     context['patients'] = Patient.objects.all()
     return render(request, template_name='pharmacy-dashboard/pages/prescription-orders.html', context=context)
 
+
 def approved_product(request):
-    context ={}
+    context = {}
     context['approved_products'] = Product.objects.filter(approved=True)
     return render(request, template_name='pharmacy-dashboard/pages/approved-products.html', context=context)
 
+
 def confirmed_orders(request):
-    context ={}
+    context = {}
     context['approved_orders'] = Product.objects.filter(delivered_order=True)
     return render(request, template_name='pharmacy-dashboard/pages/confirmed.html', context=context)
 
+
 def unapproved_product(request):
-    context ={}
+    context = {}
     context['unapproved'] = Product.objects.filter(unapproved=True)
     return render(request, template_name='pharmacy-dashboard/pages/unapproved-products.html', context=context)
 
+
 def pharmacy_report(request):
     return render(request, template_name='pharmacy-dashboard/pages/pharmacy-report.html', context={})
+
 
 def create_product(request):
     if request.method == 'POST':
@@ -114,15 +134,14 @@ def create_product(request):
         discount = request.POST.get('discount')
         dom = request.POST.get('dom')
         description = request.POST.get('description')
-        image = request.FILES.get('image') 
+        image = request.FILES.get('image')
         code = request.POST.get('code')
-          
 
-        product = Product(name=name, discount=discount,brand=brand, price=price,  dom=dom, description=description, image=image,code=code)
+        product = Product(name=name, discount=discount, brand=brand, price=price,
+                          dom=dom, description=description, image=image, code=code)
 
         product.save()
         messages.success(request, 'Product uploaded successfully')
         return redirect('pharmacetical:upload-product')
 
     return render(request, template_name='pharmacy-dashboard/pages/pharmacy-index.html', context={})
-
