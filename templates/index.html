@@ -1,0 +1,1346 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Start Main Banner Area -->
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        z-index: 3;
+    }
+
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    } 
+
+    /* 
+    .modal {
+        display: none;
+    } */
+
+    /* .visible {
+        display: block;
+    }
+</style>
+<div class="main-banner">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <div class="main-banner-content">
+                            <h2>Achieve an End-to-end Virtual Care Solution
+                                Optimizing on the Power of technology
+                            </h2>
+                            <p>
+                                Virtual care, also known as telemedicine and Telehealth , is growing in popularity due
+                                to its convenience for patients and efficiency for healthcare providers. As a result,
+                                healthcare technology leaders are focusing on refining the IT infrastructure that
+                                supports virtual care to remain competitive in the market. Providing a high-quality
+                                digital experience can help position providers as leaders in the industry, attracting
+                                both patients and caregiver talent.
+
+                            </p>
+                            <div class="banner-form">
+                                <form>
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-3 col-md-6">
+                                            <div class="form-group">
+                                                <select>
+                                                    <option>Doctor</option>
+                                                    <option value="">Dr. James Adult</option>
+                                                    <option value="">Dr. James Alison</option>
+                                                    <option value="">Dr. Peter Adlock</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6">
+                                            <div class="form-group">
+                                                <select style="overflow-y:scroll;">
+                                                    <option>Specialties</option>
+                                                    {% include "components/category-list.html" %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6">
+                                            <div class="form-group">
+                                                <select>
+                                                    <option>Condition</option>
+                                                    <option>Fever</option>
+                                                    <option>Allergies</option>
+                                                    <option>Morbidity</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6">
+                                            <div class="form-group">
+                                                <button type="submit" class="banner-form-btn">
+                                                    Search
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="banner-btn">
+                                <a href="appointment.html" class="default-btn">
+                                    Make An Appointment
+                                    <span></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="banner-image">
+                            <img src="{% static 'assets/img/doctor.png' %}" alt="image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="default-shape">
+        <div class="shape-1">
+            <img src="{% static 'assets/img/shape/shape-1.png' %}" alt="image">
+        </div>
+
+        <div class="shape-2 rotateme">
+            <img src="{% static 'assets/img/shape/shape-3.jpg' %}" alt="image">
+        </div>
+
+        <div class="shape-3">
+            <img src="{% static 'assets/img/shape/shape-3.jpg' %}" alt="image">
+        </div>
+
+        <div class="shape-4">
+            <img src="{% static 'assets/img/shape/shape-3.jpg' %}" alt="image">
+        </div>
+
+        <div class="shape-5">
+            <img src="{% static 'assets/img/shape/shape-2.png' %}" alt="image">
+        </div>
+
+        <div class="shape-6">
+            <img src="{% static 'assets/img/shape/shape-5.png' %}" alt="image">
+        </div>
+
+        <div class="shape-7">
+            <img src="{% static 'assets/img/shape/shape-7.png' %}" alt="image">
+        </div>
+    </div>
+</div>
+<!-- End Main Banner Area -->
+
+<!-- Start Top Services Area -->
+<section class="top-services-area pt-100 pb-70">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="top-services-content two">
+                    <div class="icon">
+                        <i class="flaticon-relationship"></i>
+                    </div>
+                    <h3> Telehealth </h3>
+                    <p>Facilitates secure, seamless and synchronous audio and video communication and collaboration
+                        between clinicians and patients to manage care in a virtual setting.
+
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="top-services-content">
+                    <div class="icon">
+                        <i class="flaticon-insurance"></i>
+                    </div>
+                    <h3>Disruptive Technology </h3>
+                    <p>
+                        We develop innovative solutions that promote the future of care and improve the patient
+                        experience, from the digital front door to the hospital in the home.
+
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="top-services-content">
+                    <div class="icon">
+                        <i class="flaticon-clinic"></i>
+                    </div>
+                    <h3>Remote Patient Monitoring</h3>
+                    <p>
+                        Allows patients to measure and securely transmit vital data to their provider to ensure they’re
+                        managing their health in accordance with their care plan. Clinicians can make timely adjustments
+                        as needed.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Top Services Area -->
+
+<!-- Start About Area -->
+<section class="about-area pb-100">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="about-image">
+                    <img src="{% static 'assets/img/about.png' %}" alt="image">
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="about-content">
+                    <h3>Realizing the Power of Virtual Care
+                    </h3>
+                    <p>
+                        There are compelling reasons for healthcare technology leaders to refine the IT infrastructure
+                        that supports virtual care, not in the least because it is poised to become highly competitive
+                        due to its effectiveness and efficiency for the provider and convenience for the patient.
+                        Providers that can deliver a high-quality digital experience will position themselves as
+                        front-runners for both consumers and caregiver talent.
+                    </p>
+
+                    <ul class="about-features">
+                        <li>
+                            <span id="span6" class="clickable-span">
+                                <i class='flaticon-check'></i>
+                                Cold, Cough, Flu
+                            </span>
+                        </li>
+                        <li>
+                            <span id="span5" class="clickable-span">
+                                <i class='flaticon-check'></i>
+                                Chronic Ailment
+                            </span>
+                        </li>
+                        <li>
+                            <span id="span4" class="clickable-span">
+                                <i class='flaticon-check'></i>
+                                Allergies
+                            </span>
+                        </li>
+                        <li>
+                            <span id="span3" class="clickable-span">
+                                <i class='flaticon-check'></i>
+                                Diabetic
+                            </span>
+                        </li>
+                        <li>
+                            <span id="span2" class="clickable-span">
+                                <i class='flaticon-check'></i>
+                                Women health
+                            </span>
+                        </li>
+
+                        <li>
+                            <span id="span1" class="clickable-span">
+                                <i class='flaticon-check'></i>
+                                FAQ
+                            </span>
+                        </li>
+
+                    </ul><br>
+
+                    <div id="modal1" class="modal">
+
+                        <div class="modal-content">
+                            <div class="d-flex justify-content-between">
+                                <h2 class="">FAQ</h2>
+                                <span class="close float-end">&times;</span>
+                            </div>
+
+                            <ul class="accordion" style="list-style:none;">
+                                <li class="accordion-item" style="border:none; padding:0.5rem;">
+                                    <a class="accordion-title d-flex" href="javascript:void(0)"
+                                        style="color:black; justify-content:space-between">
+
+                                        What is telehealth and telemedicine?
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+
+                                    <p class="accordion-content show"
+                                        style="background: #f1f1f1;padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                        Telehealth refers to the delivery of health-related services and information
+                                        through electronic and
+                                        telecommunication technologies. Telemedicine refers specifically to remote
+                                        clinical services, where a
+                                        healthcare provider uses technology to diagnose and treat patients remotely.
+                                    </p>
+                                </li>
+
+                                <li class="accordion-item" style="border:none; padding:0.5rem;">
+                                    <a class="accordion-title d-flex" href="javascript:void(0)"
+                                        style="color:black; justify-content:space-between">
+
+                                        How does telemedicine work?
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+
+                                    <p class="accordion-content show"
+                                        style="background: #f1f1f1;padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                        Telemedicine typically involves a virtual consultation between a healthcare
+                                        provider and a patient,
+                                        using video conferencing software or a secure messaging platform. The healthcare
+                                        provider can
+                                        evaluate the patient, diagnose conditions, and prescribe treatments, all without
+                                        the need for in-
+                                        person visits.
+                                    </p>
+                                </li>
+
+                                <li class="accordion-item" style="border:none; padding:0.5rem;">
+                                    <a class="accordion-title d-flex" href="javascript:void(0)"
+                                        style="color:black; justify-content:space-between">
+
+                                        What are the benefits of telemedicine?
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+
+                                    <p class="accordion-content show"
+                                        style="background: #f1f1f1;padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                        Telemedicine offers several benefits, including increased access to healthcare
+                                        services for patients in
+                                        rural or remote areas, improved patient convenience, and reduced wait times for
+                                        appointments. It also
+                                        helps to reduce the spread of infectious diseases and reduces the need for
+                                        travel, saving time and
+                                        money for both patients and healthcare providers.
+                                    </p>
+                                </li>
+
+                                <li class="accordion-item" style="border:none; padding:0.5rem;">
+                                    <a class="accordion-title d-flex" href="javascript:void(0)"
+                                        style="color:black; justify-content:space-between">
+
+                                        What types of healthcare services can be provided through telemedicine?
+                                        <i class="fa fa-angle-down"></i>
+
+                                    </a>
+
+                                    <p class="accordion-content show"
+                                        style="background: #f1f1f1;padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                        Telemedicine can provide a wide range of healthcare services, including virtual
+                                        primary care, specialist
+                                        consultations, mental health services, and remote patient monitoring.
+                                    </p>
+                                </li>
+
+                                <li class="accordion-item" style="border:none; padding:0.5rem;">
+                                    <a class="accordion-title d-flex" href="javascript:void(0)"
+                                        style="color:black; justify-content:space-between">
+
+                                        Is telemedicine covered by insurance?
+                                        <i class="fa fa-angle-down"></i>
+
+                                    </a>
+
+                                    <p class="accordion-content show"
+                                        style="background: #f1f1f1;padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                        Most insurance plans now cover telemedicine services, including Medicare and
+                                        Medicaid. It is important
+                                        to check with your individual insurance plan to confirm the specific
+                                        telemedicine services that are
+                                        covered.
+                                    </p>
+                                </li>
+
+                                <li class="accordion-item" style="border:none; padding:0.5rem;">
+                                    <a class="accordion-title d-flex" href="javascript:void(0)"
+                                        style="color:black; justify-content:space-between">
+
+                                        How secure is telemedicine technology?
+                                        <i class="fa fa-angle-down"></i>
+
+                                    </a>
+
+                                    <p class="accordion-content show"
+                                        style="background: #f1f1f1;padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                        Telemedicine technology is designed to be highly secure, with patient data being
+                                        encrypted and stored
+                                        in secure, HIPAA-compliant servers. This helps to protect patient privacy and
+                                        ensures that sensitive
+                                        medical information is kept confidential.
+                                    </p>
+                                </li>
+
+                                <li class="accordion-item" style="border:none; padding:0.5rem;">
+                                    <a class="accordion-title d-flex" href="javascript:void(0)"
+                                        style="color:black; justify-content:space-between">
+
+                                        Can telemedicine be used to diagnose serious conditions?
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+
+                                    <p class="accordion-content show"
+                                        style="background: #f1f1f1;padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                        Telemedicine can be used to diagnose and manage many non-emergency conditions,
+                                        but it is not
+                                        appropriate for all medical situations. For serious or life-threatening
+                                        conditions, it is important to seek in-person medical attention.
+                                    </p>
+                                </li>
+
+                                <li class="accordion-item" style="border:none; padding:0.5rem;">
+                                    <a class="accordion-title d-flex" href="javascript:void(0)"
+                                        style="color:black; justify-content:space-between">
+
+                                        Who can use telemedicine services?
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+
+                                    <p class="accordion-content show"
+                                        style="background: #f1f1f1;padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                        Telemedicine services are available to anyone with a compatible device and an
+                                        internet connection.
+                                        This makes telemedicine a convenient and accessible option for people of all
+                                        ages and backgrounds.
+                                    </p>
+                                </li>
+
+                                <li class="accordion-item" style="border:none; padding:0.5rem;">
+                                    <a class="accordion-title d-flex" href="javascript:void(0)"
+                                        style="color:black; justify-content:space-between">
+
+                                        What kind of equipment do I need to use telemedicine services?
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+
+                                    <p class="accordion-content show"
+                                        style="background: #f1f1f1;padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                        To use telemedicine services, you will need a device with a camera and
+                                        microphone, such as a
+                                        computer, tablet, or smartphone. You may also need to download specific software
+                                        or apps, depending
+                                        on the provider you choose.
+                                    </p>
+                                </li>
+
+                                <li class="accordion-item" style="border:none; padding:0.5rem;">
+                                    <a class="accordion-title d-flex" href="javascript:void(0)"
+                                        style="color:black; justify-content:space-between">
+
+                                        What are the limitations of telemedicine?
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+
+                                    <p class="accordion-content show"
+                                        style="background: #f1f1f1;padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                        Telemedicine is not a substitute for in-person medical care and may not be
+                                        appropriate for all
+                                        conditions. It also relies on reliable internet connectivity, which can be a
+                                        challenge in some areas.
+                                        Additionally, telemedicine may not be covered by all insurance plans.
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="modal2" class="modal">
+
+                        <div class="modal-content">
+                            <div class="d-flex justify-content-between">
+                                <h2 class="">WOMEN HEALTH</h2>
+                                <span class="close float-end">&times;</span>
+
+                            </div>
+                            <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut diam risus. Sed sodales
+                                euismod nibh, in tincidunt quam ultricies non. Maecenas luctus ligula non turpis
+                                vestibulum, id lacinia dolor accumsan. Duis eu massa at odio lobortis scelerisque vel
+                                sit amet augue. Sed vel tellus a ipsum lobortis sagittis. Nullam lobortis justo at
+                                ligula euismod, eget ullamcorper nisl faucibus. Sed ut dolor in sapien aliquam suscipit.
+                                Sed auctor aliquam lacus id lacinia. Sed vestibulum venenatis diam, in mollis velit. Sed
+                                vehicula a augue eu commodo. Sed at sapien ultricies, interdum nulla vel, pharetra
+                                tortor. Cras vel laoreet lorem, quis tristique lectus. Duis luctus enim vitae mauris
+                                feugiat, nec rhoncus velit commodo. Sed tincidunt nisl sit amet purus lacinia suscipit.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="modal3" class="modal">
+
+                        <div class="modal-content">
+                            <div class="d-flex justify-content-between">
+                                <h2 class="">DIABETIC</h2>
+                                <span class="close float-end">&times;</span>
+
+                            </div>
+                            <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut diam risus. Sed sodales
+                                euismod nibh, in tincidunt quam ultricies non. Maecenas luctus ligula non turpis
+                                vestibulum, id lacinia dolor accumsan. Duis eu massa at odio lobortis scelerisque vel
+                                sit amet augue. Sed vel tellus a ipsum lobortis sagittis. Nullam lobortis justo at
+                                ligula euismod, eget ullamcorper nisl faucibus. Sed ut dolor in sapien aliquam suscipit.
+                                Sed auctor aliquam lacus id lacinia. Sed vestibulum venenatis diam, in mollis velit. Sed
+                                vehicula a augue eu commodo. Sed at sapien ultricies, interdum nulla vel, pharetra
+                                tortor. Cras vel laoreet lorem, quis tristique lectus. Duis luctus enim vitae mauris
+                                feugiat, nec rhoncus velit commodo. Sed tincidunt nisl sit amet purus lacinia suscipit.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="modal4" class="modal">
+
+                        <div class="modal-content">
+                            <div class="d-flex justify-content-between">
+                                <h2 class="">ALLERGIC</h2>
+                                <span class="close float-end">&times;</span>
+
+                            </div>
+                            <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut diam risus. Sed sodales
+                                euismod nibh, in tincidunt quam ultricies non. Maecenas luctus ligula non turpis
+                                vestibulum, id lacinia dolor accumsan. Duis eu massa at odio lobortis scelerisque vel
+                                sit amet augue. Sed vel tellus a ipsum lobortis sagittis. Nullam lobortis justo at
+                                ligula euismod, eget ullamcorper nisl faucibus. Sed ut dolor in sapien aliquam suscipit.
+                                Sed auctor aliquam lacus id lacinia. Sed vestibulum venenatis diam, in mollis velit. Sed
+                                vehicula a augue eu commodo. Sed at sapien ultricies, interdum nulla vel, pharetra
+                                tortor. Cras vel laoreet lorem, quis tristique lectus. Duis luctus enim vitae mauris
+                                feugiat, nec rhoncus velit commodo. Sed tincidunt nisl sit amet purus lacinia suscipit.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="modal5" class="modal">
+
+                        <div class="modal-content">
+                            <div class="d-flex justify-content-between">
+                                <h2 class="">CHRONIC AILMENT</h2>
+                                <span class="close float-end">&times;</span>
+
+                            </div>
+                            <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut diam risus. Sed sodales
+                                euismod nibh, in tincidunt quam ultricies non. Maecenas luctus ligula non turpis
+                                vestibulum, id lacinia dolor accumsan. Duis eu massa at odio lobortis scelerisque vel
+                                sit amet augue. Sed vel tellus a ipsum lobortis sagittis. Nullam lobortis justo at
+                                ligula euismod, eget ullamcorper nisl faucibus. Sed ut dolor in sapien aliquam suscipit.
+                                Sed auctor aliquam lacus id lacinia. Sed vestibulum venenatis diam, in mollis velit. Sed
+                                vehicula a augue eu commodo. Sed at sapien ultricies, interdum nulla vel, pharetra
+                                tortor. Cras vel laoreet lorem, quis tristique lectus. Duis luctus enim vitae mauris
+                                feugiat, nec rhoncus velit commodo. Sed tincidunt nisl sit amet purus lacinia suscipit.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="modal6" class="modal">
+
+                        <div class="modal-content">
+                            <div class="d-flex justify-content-between">
+                                <h2 class="">COUGH,COLD,FLU</h2>
+                                <span class="close float-end">&times;</span>
+
+                            </div>
+                            <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut diam risus. Sed sodales
+                                euismod nibh, in tincidunt quam ultricies non. Maecenas luctus ligula non turpis
+                                vestibulum, id lacinia dolor accumsan. Duis eu massa at odio lobortis scelerisque vel
+                                sit amet augue. Sed vel tellus a ipsum lobortis sagittis. Nullam lobortis justo at
+                                ligula euismod, eget ullamcorper nisl faucibus. Sed ut dolor in sapien aliquam suscipit.
+                                Sed auctor aliquam lacus id lacinia. Sed vestibulum venenatis diam, in mollis velit. Sed
+                                vehicula a augue eu commodo. Sed at sapien ultricies, interdum nulla vel, pharetra
+                                tortor. Cras vel laoreet lorem, quis tristique lectus. Duis luctus enim vitae mauris
+                                feugiat, nec rhoncus velit commodo. Sed tincidunt nisl sit amet purus lacinia suscipit.
+                            </p>
+                        </div>
+                    </div>
+
+                    <span class="fs-6">Learn how healthcare organizations could potentially see major gains from the
+                        expansion of virtual care.</span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End About Area -->
+
+<!-- Start Services Area -->
+<section class="services-area  pt-100 pb-70">
+    <div class="container">
+        <div class="section-title_care">
+            <h2 class="text-white ms-5">Evolution and advancement of virtual Care.
+            </h2>
+
+            <ul class="accordion">
+                <li class="accordion-item" style="box-shadow:none; border:none;background: transparent;">
+
+                    <a class="accordion-title" href="javascript:void(0)" style="padding: inherit;color: white">
+                        Healthcare organizations expanded virtual care around 2020 and 2021 at an astounding rate,
+                        allowing them to continue caring for patients during the COVID-19 pandemic in ways that
+                        addressed safety, convenience and efficiency.
+                        <small style="background: none; color: blue;"> Read more </small>
+                    </a>
+                    <p class="accordion-content text-white">
+                        In the process, many providers assembled disparate, disconnected solutions and technology that
+                        created silos, inconsistent and poor workflows, and less-than-optimal protections for privacy
+                        and security. The challenge for providers currently is to knit those hastily erected,
+                        crisis-driven systems into a cohesive, intentional and strategic platform to provide exceptional
+                        virtual care to their patients.
+
+                        There are compelling reasons for healthcare technology leaders to refine the IT infrastructure
+                        that supports virtual care. Chief among them is that virtual care is poised to become highly
+                        competitive, thanks to its effectiveness and efficiency for the provider and its convenience for
+                        the patient. Providers that can deliver a high-quality digital experience will position
+                        themselves as front-runners for both consumers and caregiver talent.
+
+                        While organizations refine the technologies underpinning virtual care, they also will need to
+                        establish appropriate policies and procedures. Together, these will facilitate compliance with
+                        regulations and best practices, and will help organizations increase adoption of virtual
+                        services by patients and clinicians.
+                        From a competition perspective, virtual care has the potential to significantly alter the
+                        healthcare landscape. Maturing capabilities, combined with patients’ embrace of virtual care,
+                        open the door to new competitors, disruptions and enhanced consumer expectations. As the field
+                        continues to evolve, providers must incorporate these considerations into their post-pandemic
+                        business strategies.
+                        <a class="accordion-title" href="javascript:void(0)">
+                            <small style="background: none; color: blue;"> Read less </small>
+
+                        </a>
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="services-item bg-1">
+                    <div class="icon">
+                        <i class="flaticon-bacteria"></i>
+                    </div>
+                    <a href="#">
+                        <h3>All-In-One Solution for Clinics & hospitals</h3>
+                    </a>
+                    <p>The Only solution for Your medical facility Needs</p>
+                    {% comment %} <a href="#" class="read-btn">Read More +</a> {% endcomment %}
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="services-item bg-2">
+                    <div class="icon">
+                        <i class="flaticon-shield"></i>
+                    </div>
+                    <a href="#">
+                        <h3>Simple, Secure, Telemedicine, Med E-commerce & pharmacy platform </h3>
+                    </a>
+                    <p>Video Calls, Care Plans, Secure Messaging. One solution for all your Telehealth and telemedicine
+                        needs</p>
+                    {% comment %} <a href="#" class="read-btn">Read More +</a> {% endcomment %}
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="services-item bg-3">
+                    <div class="icon">
+                        <i class="flaticon-beauty-treatment"></i>
+                    </div>
+                    <a href="#">
+                        <h3>Engage & Retain Patients </h3>
+                    </a>
+                    <p>Stay Connected With Your Patients Increasing Revisits And Revenue Growth</p>
+                    {% comment %} <a href="#" class="read-btn">Read More +</a> {% endcomment %}
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="services-item bg-4">
+                    <div class="icon">
+                        <i class="flaticon-mental-health"></i>
+                    </div>
+                    <a href="#">
+                        <h3>Appointments On Your Virtual Practice</h3>
+                    </a>
+                    <p>Manage your clinic and online appointments and consultations in one place. Allow staff to
+                        schedule appointments for patients or have patient book them online or on our mobile app.</p>
+                    {% comment %} <a href="#" class="read-btn">Read More +</a> {% endcomment %}
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="services-item bg-5">
+                    <div class="icon">
+                        <i class="flaticon-crutches"></i>
+                    </div>
+                    <a href="#">
+                        <h3>Grow Your Practice</h3>
+                    </a>
+                    <p>Attract and Acquire More Patients with Patient Marketing & Reputation Management</p>
+                    {% comment %} <a href="#" class="read-btn">Read More +</a> {% endcomment %}
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="services-item bg-6">
+                    <div class="icon">
+                        <i class="flaticon-pregnancy"></i>
+                    </div>
+                    <a href="#">
+                        <h3>Remote Monitoring</h3>
+                    </a>
+                    <p>Reduce hospital re-admissions with timely health tracking and intervention with Remote Patient
+                        Monitoring on the Virtual Practice.</p>
+                    {% comment %} <a href="#" class="read-btn">Read More +</a> {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Services Area -->
+
+<!-- Start App Area -->
+<section class="app-area ptb-100">
+    <div class="container-fluid pl-0">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="app-image">
+                    <img src="{% static 'assets/img/app.png' %}" alt="image">
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="app-content">
+                    <span>Appointment</span>
+                    <h3>How To Get Started by Using Our App</h3>
+                    <p> Many healthcare systems around the world together with government agencies and startup companies
+                        are building and delivering Telehealth solutions</p>
+
+
+                    <div class="app-text">
+                        <div class="icon">
+                            <i class="flaticon-calendar"></i>
+                        </div>
+                        <h4>Pick Your Package</h4>
+                        <p>Our telehealth app offers a range of packages to suit different needs and budgets.
+                            <a href="{% url 'how-it-works' %}" style="padding: inherit;">
+                                <small style="background: none; color: blue;"> Read more</small>
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="app-text">
+                        <div class="icon">
+                            <i class="flaticon-mobile-app"></i>
+                        </div>
+                        <h4>Resq 247 App Setup</h4>
+                        <p>Setting up our telehealth app is quick and easy!
+                            <a href="{% url 'how-it-works' %}" style="padding: inherit;">
+                                <small style="background: none; color: blue;"> Read more</small>
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="app-text">
+                        <div class="icon">
+                            <i class="flaticon-patient"></i>
+                        </div>
+                        <h4>Patient Onboarding</h4>
+                        <p> Patient onboarding is the process of introducing new patients to our telehealth app and
+                            getting them
+                            started with virtual care.
+                            <a href="{% url 'how-it-works' %}" style="padding: inherit;">
+                                <small style="background: none; color: blue;"> Read more</small>
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="app-text">
+                        <div class="icon">
+                            <i class="flaticon-broadcasting"></i>
+                        </div>
+                        <h4>Going Live</h4>
+                        <p>Going live with our telehealth app is a simple and straightforward process.
+                            <a href="{% url 'how-it-works' %}" style="padding: inherit;">
+                                <small style="background: none; color: blue;"> Read more</small>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End App Area -->
+
+<!-- Start Solutions Area -->
+<section class="solutions-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="solutions-content">
+                    <span>Solutions</span>
+                    <h3>Solutions</h3>
+                    <div class="faq-accordion-content">
+                        <ul class="accordion">
+                            <li class="accordion-item" style="box-shadow:none; border:none;">
+                                <a class="accordion-title" href="javascript:void(0)" style="padding: inherit;">
+                                    Unpacking universal healthcare coverage. The industry landscape is rapidly changing,
+                                    Telehealth virtual health care IT
+                                    <small style="background: none; color: blue;"> Read more<i
+                                            class="fa fa-angle-double-right"
+                                            style="background: none; color: blue;position: relative;left: -0.8rem; right: auto;top: auto;bottom: 0.2rem;"></i></small>
+                                </a>
+                                <p class="accordion-content">
+
+                                    solutions provide many benefits to both healthcare providers and patients, including
+                                    increased access to care, improved patient satisfaction, and reduced costs.
+                                    Healthcare providers must carefully evaluate the various options available and
+                                    ensure that the solutions they choose create an environment where healthcare is
+                                    never a struggle. </p>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <ul class="solutions-features">
+
+                        <li>
+                            <span>
+                                <a href="{% url 'analytic' %}" class="nav-link">Analytic Solutions </a>
+                            </span>
+
+                        </li>
+
+                        <li>
+                            <span>
+                                <a href="{% url 'healthcare' %}" class="nav-link"> Healthcare services financing
+                                </a>
+
+                            </span>
+
+                        </li>
+
+                        <li>
+                            <span>
+                                <a href="{% url 'equip' %}" class="nav-link">
+                                    Healthcare equip financing
+                                </a>
+                            </span>
+
+                        </li>
+
+                        <li>
+                            <span>
+                                <a href="{% url 'shop' %}" class="nav-link">
+                                    Med E-commerce
+                                </a>
+                            </span>
+
+                        </li>
+
+                        <li>
+                            <span>
+                                <a href="{% url 'medicare' %}" class="nav-link">
+                                    IT Medicare solutions
+                                </a>
+
+                            </span>
+                        </li>
+
+                        <li>
+                            <span>
+                                <a href="{% url 'telehealth' %}" class="nav-link">
+                                    Telehealth facilities Hosting
+                                </a>
+                            </span>
+                        </li>
+
+                        <li>
+                            <span>
+                                <a href="#" class="nav-link">
+                                    Emergency medical response
+
+                                </a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="solutions-image">
+                    <img src="{% static 'assets/img/solutions.png' %}" alt="image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Solutions Area -->
+
+<!-- Start Doctor Area -->
+<section class="doctor-area pt-100 pb-70">
+    <div class="container-fluid">
+        <div class="section-title">
+            <div class="section-title">
+                <span>Our Doctors</span>
+                <h2>Specialized Doctors</h2>
+                <p>People trust us with their lives. We have the opportunity to help people change their health for the
+                    better.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="doctor-item">
+                    <div class="image">
+                        <img src="{% static 'assets/img/team/image1.jpg' %}" alt="image">
+                    </div>
+                    <div class="content">
+                        <h3>Dr. James Adult</h3>
+                        <span>Cardiologist</span>
+
+                        <ul class="social">
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-pinterest-p"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="doctor-item">
+                    <div class="image">
+                        <img src="{% static 'assets/img/team/image2.jpg' %}" alt="image">
+                    </div>
+                    <div class="content">
+                        <h3>Dr. James Alison</h3>
+                        <span>Medicine</span>
+
+                        <ul class="social">
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-pinterest-p"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="doctor-item">
+                    <div class="image">
+                        <img src="{% static 'assets/img/team/image3.jpg' %}" alt="image">
+                    </div>
+                    <div class="content">
+                        <h3>Dr. Peter Adlock</h3>
+                        <span>Neurologiest</span>
+
+                        <ul class="social">
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-pinterest-p"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="doctor-item">
+                    <div class="image">
+                        <img src="{% static 'assets/img/team/image4.jpg' %}" alt="image">
+                    </div>
+                    <div class="content">
+                        <h3>Dr. Jelin Alis</h3>
+                        <span>Medicine</span>
+
+                        <ul class="social">
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-pinterest-p"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Doctor Area -->
+
+<!-- Start Appointment Area -->
+<section class="appointment-area ptb-100">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-fun-fact">
+                            <h3>
+                                <span class="odometer" data-count="2700">00</span>
+                                <span class="sign-icon">+</span>
+                            </h3>
+                            <p>Care Locations</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-fun-fact">
+                            <h3>
+                                <span class="odometer" data-count="2.7">00</span>
+                                <span class="sign-icon">K</span>
+                            </h3>
+                            <p>Virtual Care Solutions</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-fun-fact">
+                            <h3>
+                                <span class="odometer" data-count="99.60">00</span>
+                                <span class="sign-icon">%</span>
+                            </h3>
+                            <p>Connections Success Rate</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-fun-fact">
+                            <h3>
+                                <span class="odometer" data-count="30">00</span>
+                                <span class="sign-icon">+</span>
+                            </h3>
+                            <p>Award Winning</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="appointment-form">
+                    <div class="content">
+                        <span>Call to Action</span>
+                        <h3>Make An Appointment</h3>
+                    </div>
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="Name" placeholder="Enter Your Name">
+                                    <i class="flaticon-user"></i>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="Email" placeholder="Enter Email">
+                                    <i class="flaticon-email"></i>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="Phone" placeholder="Enter Phone Number">
+                                    <i class="flaticon-call"></i>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="form-group">
+                                    <select>
+                                        <option value="">Select Category</option>
+                                        <option value="">Cardiologists</option>
+                                        <option value="">Dermatologists</option>
+                                        <option value="">Endocrinologists</option>
+                                        <option value="">Gastroenterologists</option>
+                                        <option value="">Allergists</option>
+                                        <option value="">Immunologists</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="form-group">
+                                    <select>
+                                        <option value="">Select Doctor</option>
+                                        <option value="">Dr. James Adult</option>
+                                        <option value="">Dr. James Alison</option>
+                                        <option value="">Dr. Peter Adlock</option>
+                                        <option value="">Dr. Jelin Alis</option>
+                                        <option value="">Dr. Josh Taylor</option>
+                                        <option value="">Dr. Steven Smith</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="form-group">
+                                    <div class="input-group date" id="datetimepicker">
+                                        <input type="text" class="form-control" placeholder="Date">
+                                        <span class="input-group-addon"></span>
+                                    </div>
+                                    <i class="flaticon-calendar"></i>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="appointment-btn">
+                                    <button type="submit" class="default-btn">
+                                        Confirm Appointment
+                                        <span></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Appointment Area -->
+
+<!-- Start Consult Area -->
+<section class="consult-area ptb-100">
+    <div class="container-fluid pl-0">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="consult-image">
+                    <img src="{% static 'assets/img/consult.png' %}" alt="image">
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="consult-content">
+                    <span>Online Consult</span>
+                    <h3>Get 24/7 Care Right From Your Phone</h3>
+                    <p>We provide 24/7 care for you we are just a phone away</p>
+                    <ul class="list">
+                        <li>
+                            <i class="flaticon-check-1"></i>
+                            Get unlimited 24/7 Video Chat with a provider at no extra cost
+                        </li>
+                        <li>
+                            <i class="flaticon-check-1"></i>
+                            Easily book appointments and renew prescriptions
+                        </li>
+                        <li>
+                            <i class="flaticon-check-1"></i>
+                            Skip unnecessary trips to the ER or urgent care
+                        </li>
+                        <li>
+                            <i class="flaticon-check-1"></i>
+                            Have a Remote Visit with your primary care provider over video
+                        </li>
+                        <li>
+                            <i class="flaticon-check-1"></i>
+                            A message with your provider
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Consult Area -->
+
+
+
+<!-- Start Blog Area -->
+<section class="blog-area pb-70">
+    <div class="container-fluid">
+        <div class="section-title">
+            <span>News</span>
+            <h2>Our Latest News</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Quis ipsum su</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item">
+                    <div class="image">
+                        <a href="#">
+                            <img src="{% static 'assets/img/blog/image1.jpg' %}" alt="image">
+                        </a>
+
+                        <a href="#" class="date">20 April, 2022</a>
+                    </div>
+
+                    <div class="content">
+                        <h3>
+                            <a href="#">Telehealth Is Here To Stay. In Your Facility Ready?</a>
+                        </h3>
+
+                        <a href="#" class="blog-btn">Read More +</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item">
+                    <div class="image">
+                        <a href="#">
+                            <img src="{% static 'assets/img/blog/image2.jpg' %}" alt="image">
+                        </a>
+
+                        <a href="#" class="date">20 April, 2022</a>
+                    </div>
+
+                    <div class="content">
+                        <h3>
+                            <a href="#">Coronavirus stimulus checks: What you need to know</a>
+                        </h3>
+
+                        <a href="#" class="blog-btn">Read More +</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item">
+                    <div class="image">
+                        <a href="#">
+                            <img src="{% static 'assets/img/blog/image3.jpg' %}" alt="image">
+                        </a>
+
+                        <a href="#" class="date">20 April, 2022</a>
+                    </div>
+
+                    <div class="content">
+                        <h3>
+                            <a href="#">People worldwide adjust to new life amid COVID-19</a>
+                        </h3>
+
+                        <a href="#" class="blog-btn">Read More +</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Blog Area -->
+
+<script>
+    // Get all the clickable spans
+    const clickableSpans = document.querySelectorAll('.clickable-span');
+
+    // Loop through the clickable spans and attach a click event listener to each one
+    clickableSpans.forEach(span => {
+        span.addEventListener('click', function () {
+            // Get the ID of the clicked span
+            const spanId = this.id;
+
+            // Get the ID of the modal corresponding to the clicked span
+            const modalId = `modal${spanId.slice(4)}`;
+
+            // Get the modal element
+            const modal = document.getElementById(modalId);
+
+            // Get the close button element inside the modal
+            const closeButton = modal.querySelector('.close');
+
+            // When the user clicks on the span, display the corresponding modal
+            modal.style.display = 'block';
+
+            // When the user clicks on the close button, hide the modal
+            closeButton.addEventListener('click', function () {
+                modal.style.display = 'none';
+            });
+        });
+    });
+
+</script>
+
+{% endblock %}

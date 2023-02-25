@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+        <!-- Start Page Title Area -->
+        <div class="page-title-area item-bg-5">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container">
+                        <div class="page-title-content">
+                            <h2>Telehealth Facilities Hosting</h2>
+                            <ul>
+                                <li><a href="{% url 'index' %}">Home</a></li>
+                                <li>Telehealth Facilities Hosting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Title Area -->
+
+        <!-- Service details -->
+        <div class="service-details ptb-100">
+            <div class="container">
+                <div class="service-details-content">
+        
+                    <p>
+                        Telehealth has become an increasingly important aspect of healthcare, as it provides patients with convenient access to medical consultations and services without the need for in-person visits. By offering telehealth hosting services to medical facilities , we make it easy for medical facilities to launch telehealth services quickly and effectively. Launch your medical services online in under 5 minutes , minimize the time and resources required to set up telehealth capabilities and allow to start providing this service to patients                                    </p><br>
+
+                    </p>
+                    <button class="btn btn-success opacity-75 text-white align-self-center">
+                        Schedule a call with us 
+ 
+                     </button> 
+                </div>
+            </div>
+        </div>
+        <!-- End Service details -->
+
+        {% endblock %}

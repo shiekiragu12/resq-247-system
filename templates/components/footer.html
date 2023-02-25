@@ -1,0 +1,234 @@
+{% load static %}
+
+<style>
+    .errorlist {
+        list-style: auto;
+    }
+
+    .after-border {
+        position: relative;
+    }
+
+    .after-border::after {
+        content: "";
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: rgb(222, 225, 255);
+    }
+</style>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    {% for msg in messages %}
+    {% if msg.tags == "error" %}
+    <div id="liveToast" class="toast show bg-danger text-white mb-2 border-0" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="toast-header">
+            <!-- <img src="..." class="rounded me-2" alt="..."> -->
+            <i class="fa fa-bell me-2"></i>
+            <strong class="me-auto">Alert</strong>
+            <!-- <small>11 mins ago</small> -->
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            {{msg | safe}}
+        </div>
+    </div>
+    {% else %}
+    <div id="liveToast" class="toast show bg-{{msg.tags}} text-white border-0" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="toast-header">
+            <!-- <img src="..." class="rounded me-2" alt="..."> -->
+            <i class="fa fa-bell me-2"></i>
+            <strong class="me-auto">Alert</strong>
+            <!-- <small>11 mins ago</small> -->
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body form-errors">
+            {{msg | safe}}
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+<!-- Start Footer Area -->
+<section class="footer-area pt-100 pb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 after-borde">
+                <div class="single-footer-widget">
+                    <h3>Resq247</h3>
+
+                    <p></p>
+                    <ul class="footer-social">
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="single-footer-widget pl-5">
+                    <h3>Useful Links</h3>
+
+                    <ul class="footer-quick-links">
+                        <li>
+                            <a href="index.html">Services</a>
+                        </li>
+                        <li>
+                            <a href="about.html">About</a>
+                        </li>
+                        <li>
+                            <a href="solution.html">Health in Hand</a>
+                        </li>
+                        <li>
+                            <a href="services.html">Solution</a>
+                        </li>
+                        <li>
+                            <a href="blog.html">Shop</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Blog</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="single-footer-widget">
+                    <h3>Contact</h3>
+
+                    <div class="footer-info-contact">
+                        <i class="flaticon-call"></i>
+                        <h3>Phone</h3>
+                        <span><a href="tel:0722865048">0722865048</a></span>
+                        <span><a href="tel: 0738247247"> 0738247247</a></span>
+                    </div>
+
+                    <div class="footer-info-contact">
+                        <i class="flaticon-email"></i>
+                        <h3>Email</h3>
+                        <span><a href="mailto:info@resq247.live">info@resq247.live </a></span>
+                    </div>
+
+                    <div class="footer-info-contact">
+                        <i class="flaticon-pin"></i>
+                        <h3>Address</h3>
+                        <span>Delta corner, Chiromo rd ,Nairobi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div> -->
+</section>
+<!-- End Footer Area -->
+
+<!-- Start Copy Right Section -->
+<div class="copyright-area">
+    <div class="container">
+        <p>
+            Copyright ©
+            <script>document.write(new Date().getFullYear())</script> RESQ. All Rights Reserved. Developed by
+            <a href="https://livesoftwaredeveloper.com/" target="_blank">
+                Live Software Developer
+            </a>
+        </p>
+    </div>
+</div>
+<!-- End Copy Right Section -->
+
+<!-- Start Go Top Area -->
+<div class="go-top">
+    <i class="fa fa-chevron-up"></i>
+    <i class="fa fa-chevron-up"></i>
+</div>
+<!-- End Go Top Area -->
+
+<!-- dark version -->
+<div class="dark-version">
+    <label id="switch" class="switch">
+        <input type="checkbox" onchange="toggleTheme()" id="slider">
+        <span class="slider round"></span>
+    </label>
+</div>
+<!-- dark version -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<!-- Jquery Slim JS -->
+<script src="{% static 'assets/js/jquery.min.js'%}"></script>
+<!-- Bootstrap JS -->
+<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+<!-- Nice Select JS -->
+<script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+<!-- Odometer JS -->
+<script src="{% static 'assets/js/odometer.min.js'%}"></script>
+<!-- Appear JS -->
+<script src="{% static 'assets/js/jquery.appear.js' %}"></script>
+<!-- Datepicker JS -->
+<script src="{% static 'assets/js/datepicker.min.js' %}"></script>
+<!-- Magnific JS -->
+<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+<!-- Carousel JS -->
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+
+<!-- Toastr JS -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+    integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Custom JS -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+<!-- Cart JS -->
+<script src="{% static 'assets/js/cart.js' %}"></script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/63f732724247f20fefe22cfd/1gpupq55n';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
+
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>

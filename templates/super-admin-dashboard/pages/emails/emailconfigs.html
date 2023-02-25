@@ -1,0 +1,149 @@
+{% extends './../../base.html' %}
+{% load customtags %}
+
+{% block title %} Email Configurations {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="page-description">
+                <h1>Email Configurations</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card widget widget-stats">
+                <div class="card-body">
+                    <div class="widget-stats-container d-flex">
+                        <div class="widget-stats-icon widget-stats-icon-primary">
+                            <i class="material-icons">outgoing_mail</i>
+                        </div>
+                        <div class="widget-stats-content flex-fill">
+                            <span class="widget-stats-title">Total Configs</span>
+                            <span class="widget-stats-amount">{{total_configs}}</span>
+                            <!-- <span class="widget-stats-info">471 Orders Total</span> -->
+                        </div>
+                        <!-- <div class="widget-stats-indicator widget-stats-indicator-negative align-self-start">
+                            <i class="material-icons">keyboard_arrow_down</i> 4%
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col">
+        <div class="card">
+            <div class="card-body">
+                <table id="datatable4" class="display nowrap custom-table" style="width:auto">
+                    <thead>
+                        <tr>
+                            <th class="w-custom">Created By</th>
+                            <th>Title</th>
+                            <th>Email</th>
+                            <th>Host</th>
+                            <th>Port</th>
+                            <th>Use TLS</th>
+                            <th>Color</th>
+                            <th>Created On</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for config in emailconfigs %}
+                        <tr>
+                            <td class="w-custom">
+                                <div class="custom-name-holder">
+                                    <div
+                                        class="avatar rounded-circle avatar-sm me-2 d-flex align-items-center justify-content-center bg-light text-capitalize p-1">
+                                        {% if config.created_by.profile.profile_photo %}
+                                        <img src="{{config.created_by.profile.profile_photo.url}}" alt="">
+                                        {% else %}
+                                        {{config.created_by.username|get_first_letter}}
+                                        {% endif %}
+                                    </div>
+                                    <div class="vstack gap-0">
+                                        <p class="m-0 p-0">{{config.created_by.first_name}}
+                                            {{config.created_by.last_name}}</p>
+                                        <p class="m-0 p-0">
+                                            <small>{{config.created_by.email}}</small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{config.title}}</td>
+                            <td>{{config.email}}</td>
+                            <td>{{config.host}}</td>
+                            <td>{{config.port}}</td>
+                            <td>
+                                {% if email.use_tls %}
+                                <div class="badge badge-sucess">
+                                    True
+                                </div>
+                                {% else %}
+                                <div class="badge badge-danger">
+                                    False
+                                </div>
+                                {% endif %}
+                            </td>
+                            <td>{{config.color}}</td>
+                            <td>{{config.created_on}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th class="w-custom">Created By</th>
+                            <th>Title</th>
+                            <th>Email</th>
+                            <th>Host</th>
+                            <th>Port</th>
+                            <th>Use TLS</th>
+                            <th>Color</th>
+                            <th>Created On</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        "use strict";
+
+        // $('#datatable4 tfoot th').each(function () {
+        //     var title = $(this).text();
+        //     $(this).html('<input type="text" class="form-control" placeholder="Search ' + title + '" />');
+        // });
+
+        // DataTable
+        var table = $('#datatable4').DataTable({
+            // scrollY: "300px",
+            scrollX: true,
+            // scrollCollapse: true,
+            // paging: true,
+
+            initComplete: function () {
+                // Apply the search
+                this.api().columns().every(function () {
+                    var that = this;
+
+                    $('input', this.footer()).on('keyup change clear', function () {
+                        if (that.search() !== this.value) {
+                            that
+                                .search(this.value)
+                                .draw();
+                        }
+                    });
+                });
+            }
+        });
+
+    })
+</script>
+{% endblock %}

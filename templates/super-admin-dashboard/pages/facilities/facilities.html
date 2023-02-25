@@ -1,0 +1,206 @@
+{% extends './../../base.html' %}
+{% load customtags %}
+
+{% block title %} Facilities {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="page-description">
+                <h1>Facilities</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card widget widget-stats">
+                <div class="card-body">
+                    <div class="widget-stats-container d-flex">
+                        <div class="widget-stats-icon widget-stats-icon-primary">
+                            <i class="material-icons">local_hospital</i>
+                        </div>
+                        <div class="widget-stats-content flex-fill">
+                            <span class="widget-stats-title">Total Facilities</span>
+                            <span class="widget-stats-amount">{{total_facilities}}</span>
+                            <!-- <span class="widget-stats-info">471 Orders Total</span> -->
+                        </div>
+                        <!-- <div class="widget-stats-indicator widget-stats-indicator-negative align-self-start">
+                            <i class="material-icons">keyboard_arrow_down</i> 4%
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col">
+        <div class="card">
+            <div class="card-body">
+                <table id="datatable4" class="display nowrap custom-table" style="width:auto">
+                    <thead>
+                        <tr>
+                            <th class="custom-th-text">Name</th>
+                            <th class="custom-th-text">Owner</th>
+                            <th class="custom-th-text">Owner Name</th>
+                            <th class="custom-th-text">Facility Type</th>
+                            <th class="custom-th-text">Authorized</th>
+                            <th class="custom-th-text">County</th>
+                            <th class="custom-th-text">Constituency</th>
+                            <th class="custom-th-text">Contact Number</th>
+                            <th class="custom-th-text">Email</th>
+                            <th class="custom-th">Registered On</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for obj in facilities %}
+                        <tr>
+                            <td class="w-custom">
+                                <div class="custom-name-holder">
+                                    <div
+                                        class="avatar rounded-circle avatar-sm me-2 d-flex align-items-center justify-content-center bg-light text-capitalize p-1">
+                                        {% if obj.logo %}
+                                        <img src="{{obj.logo.url}}" alt="">
+                                        {% else %}
+                                        {{obj.name|get_first_letter}}
+                                        {% endif %}
+                                    </div>
+                                    <div class="vstack gap-0">
+                                        <p class="m-0 p-0">{{obj.name}} </p>
+                                        <p class="m-0 p-0">
+                                            <small>{{obj.email}}</small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="w-custom">
+                                {% if obj.owner %}
+                                <div class="custom-name-holder">
+                                    <div
+                                        class="avatar rounded-circle avatar-sm me-2 d-flex align-items-center justify-content-center bg-light text-capitalize p-1">
+                                        {% if obj.owner.profile.profile_photo %}
+                                        <img src="{{obj.owner.profile.profile_photo.url}}" alt="">
+                                        {% else %}
+                                        {{obj.owner.username|get_first_letter}}
+                                        {% endif %}
+                                    </div>
+                                    <div class="vstack gap-0">
+                                        <p class="m-0 p-0">{{obj.owner.first_name}} {{obj.owner.last_name}}</p>
+                                        <p class="m-0 p-0">
+                                            <small>{{obj.owner.email}}</small>
+                                        </p>
+                                    </div>
+                                </div>
+                                {% else %}
+                                N/A
+                                {% endif %}
+                            </td>
+                            <td>{{obj.owner_name}}</td>
+                            <td>{{obj.facility_type.name}}</td>
+                            <td>
+                                {% if obj.authorized %}
+                                <div class="badge badge-success">
+                                    Authorized
+                                </div>
+                                {% else %}
+                                <div class="badge badge-danger">
+                                    Not Authorized
+                                </div>
+                                {% endif %}
+                            </td>
+                            <td>{{obj.county.name}}</td>
+                            <td>{{obj.constituency.name}}</td>
+                            <td>{{obj.contact_name}}</td>
+                            <td>{{obj.email}}</td>
+                            <td>{{obj.created_on}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th class="custom-th-text">Name</th>
+                            <th class="custom-th-text">Owner</th>
+                            <th class="custom-th-text">Owner Name</th>
+                            <th class="custom-th-text">Facility Type</th>
+                            <th class="custom-th-text">Authorized</th>
+                            <th class="custom-th-text">County</th>
+                            <th class="custom-th-text">Constituency</th>
+                            <th class="custom-th-text">Contact Number</th>
+                            <th class="custom-th-text">Email</th>
+                            <th class="custom-th">Registered On</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Email Preview modal -->
+<div class="modal fade" id="email-preview" tabindex="-1" aria-labelledby="email-preview-title" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="email-preview-title"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        "use strict";
+
+        // $('#datatable4 tfoot th').each(function () {
+        //     var title = $(this).text();
+        //     $(this).html('<input type="text" class="form-control" placeholder="Search ' + title + '" />');
+        // });
+
+        // DataTable
+        var table = $('#datatable4').DataTable({
+            // scrollY: "300px",
+            scrollX: true,
+            // scrollCollapse: true,
+            // paging: true,
+
+            initComplete: function () {
+                // Apply the search
+                this.api().columns().every(function () {
+                    var that = this;
+
+                    $('input', this.footer()).on('keyup change clear', function () {
+                        if (that.search() !== this.value) {
+                            that
+                                .search(this.value)
+                                .draw();
+                        }
+                    });
+                });
+            }
+        });
+
+    })
+</script>
+<script>
+    $('#email-preview').on('show.bs.modal', function (event) {
+        let button = event.relatedTarget
+        let modal = $(this)
+
+        let subject = button.getAttribute('data-bs-subject')
+        let email = button.getAttribute('data-bs-mail')
+
+        modal.find('.modal-title').text(subject)
+        modal.find('.modal-body').html(email)
+    })
+</script>
+{% endblock %}

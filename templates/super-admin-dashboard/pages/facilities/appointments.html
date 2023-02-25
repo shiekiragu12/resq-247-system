@@ -1,0 +1,209 @@
+{% extends './../../base.html' %}
+{% load customtags %}
+
+{% block title %} Appointments {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="page-description">
+                <h1>Appointments</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card widget widget-stats">
+                <div class="card-body">
+                    <div class="widget-stats-container d-flex">
+                        <div class="widget-stats-icon widget-stats-icon-primary">
+                            <i class="material-icons">event</i>
+                        </div>
+                        <div class="widget-stats-content flex-fill">
+                            <span class="widget-stats-title">Total Appointments</span>
+                            <span class="widget-stats-amount">{{total_appointments}}</span>
+                            <!-- <span class="widget-stats-info">471 Orders Total</span> -->
+                        </div>
+                        <!-- <div class="widget-stats-indicator widget-stats-indicator-negative align-self-start">
+                            <i class="material-icons">keyboard_arrow_down</i> 4%
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col">
+        <div class="card">
+            <div class="card-body">
+                <table id="datatable4" class="display nowrap custom-table" style="width:auto">
+                    <thead>
+                        <tr>
+                            <th class="custom-th-text">Facility</th>
+                            <th class="custom-th-text">Doctor</th>
+                            <th class="custom-th-text">Patient</th>
+                            <th class="custom-th-text">Condition</th>
+                            <th class="custom-th-text">Note</th>
+                            <th class="custom-th-text">Status</th>
+                            <th class="custom-th-text">Date</th>
+                            <th class="custom-th-text">Start Time</th>
+                            <th class="custom-th-text">End Time</th>
+                            <th class="custom-th">Created On</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for obj in conditions %}
+                        <tr>
+                            <td>
+                                <div class="custom-name-holder">
+                                    <div
+                                        class="avatar rounded-circle avatar-sm me-2 d-flex align-items-center justify-content-center bg-light text-capitalize p-1">
+                                        {% if obj.facility.logo %}
+                                        <img src="{{obj.logo.url}}" alt="">
+                                        {% else %}
+                                        {{obj.facility.name|get_first_letter}}
+                                        {% endif %}
+                                    </div>
+                                    <div class="vstack gap-0">
+                                        <p class="m-0 p-0">{{obj.facility.name}} </p>
+                                        <p class="m-0 p-0">
+                                            <small>{{obj.facility.email}}</small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-name-holder">
+                                    <div
+                                        class="avatar rounded-circle avatar-sm me-2 d-flex align-items-center justify-content-center bg-light text-capitalize p-1">
+                                        {% if obj.doctor.profile.profile_photo %}
+                                        <img src="{{obj.doctor.profile.profile_photo.url}}" alt="">
+                                        {% else %}
+                                        {{obj.doctor.username|get_first_letter}}
+                                        {% endif %}
+                                    </div>
+                                    <div class="vstack gap-0">
+                                        <p class="m-0 p-0">{{obj.doctor.first_name}} {{obj.doctor.last_name}}</p>
+                                        <p class="m-0 p-0">
+                                            <small>{{obj.doctor.email}}</small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-name-holder">
+                                    <div
+                                        class="avatar rounded-circle avatar-sm me-2 d-flex align-items-center justify-content-center bg-light text-capitalize p-1">
+                                        {% if obj.patient.profile.profile_photo %}
+                                        <img src="{{obj.patient.profile.profile_photo.url}}" alt="">
+                                        {% else %}
+                                        {{obj.patient.username|get_first_letter}}
+                                        {% endif %}
+                                    </div>
+                                    <div class="vstack gap-0">
+                                        <p class="m-0 p-0">{{obj.patient.first_name}} {{obj.patient.last_name}}</p>
+                                        <p class="m-0 p-0">
+                                            <small>{{obj.patient.email}}</small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-capitalize">{{obj.condition.name}}</td>
+                            <td>{{obj.note}}</td>
+                            <td>{{obj.status}}</td>
+                            <td>{{obj.date}}</td>
+                            <td>{{obj.start_time}}</td>
+                            <td>{{obj.end_time}}</td>
+                            <td>{{obj.created_on}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th class="custom-th-text">Facility</th>
+                            <th class="custom-th-text">Doctor</th>
+                            <th class="custom-th-text">Patient</th>
+                            <th class="custom-th-text">Condition</th>
+                            <th class="custom-th-text">Note</th>
+                            <th class="custom-th-text">Status</th>
+                            <th class="custom-th-text">Date</th>
+                            <th class="custom-th-text">Start Time</th>
+                            <th class="custom-th-text">End Time</th>
+                            <th class="custom-th">Created On</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Email Preview modal -->
+<div class="modal fade" id="email-preview" tabindex="-1" aria-labelledby="email-preview-title" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="email-preview-title"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        "use strict";
+
+        // $('#datatable4 tfoot th').each(function () {
+        //     var title = $(this).text();
+        //     $(this).html('<input type="text" class="form-control" placeholder="Search ' + title + '" />');
+        // });
+
+        // DataTable
+        var table = $('#datatable4').DataTable({
+            // scrollY: "300px",
+            scrollX: true,
+            // scrollCollapse: true,
+            // paging: true,
+
+            initComplete: function () {
+                // Apply the search
+                this.api().columns().every(function () {
+                    var that = this;
+
+                    $('input', this.footer()).on('keyup change clear', function () {
+                        if (that.search() !== this.value) {
+                            that
+                                .search(this.value)
+                                .draw();
+                        }
+                    });
+                });
+            }
+        });
+
+    })
+</script>
+<script>
+    $('#email-preview').on('show.bs.modal', function (event) {
+        let button = event.relatedTarget
+        let modal = $(this)
+
+        let subject = button.getAttribute('data-bs-subject')
+        let email = button.getAttribute('data-bs-mail')
+
+        modal.find('.modal-title').text(subject)
+        modal.find('.modal-body').html(email)
+    })
+</script>
+{% endblock %}

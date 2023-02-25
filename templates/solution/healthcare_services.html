@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+        <!-- Start Page Title Area -->
+        <div class="page-title-area item-bg-5">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container">
+                        <div class="page-title-content">
+                            <h2>Healthcare Servicing Finance</h2>
+                            <ul>
+                                <li><a href="{% url 'index' %}">Home</a></li>
+                                <li>Healthcare Servicing Finance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Title Area -->
+
+        <!-- Service details -->
+        <div class="service-details ptb-100">
+            <div class="container">
+                <div class="service-details-image">
+                    <img src="assets/img/single-service.jpg" alt="image">
+                </div>
+
+                <div class="service-details-content">
+        
+                    <p>  We believe that access to quality medical care should be a right for all individuals, not just a privilege for those who can afford it. With the high cost of medical care, many people are struggling to pay for the care they need. This is why we have introduced KOPA HUDUMA or HEALTHCARE SERVIVE FINANCING , a healthcare financing solution that helps make universal healthcare coverage a reality for all.
+
+                        Our goal is to ensure that everyone has access to quality medical care, regardless of their financial situation. We understand that navigating the healthcare system can be overwhelming, especially when faced with a medical bill and limited financial resources. That's why we have created a simple and straightforward process for determining eligibility for healthcare financing.</p>
+                    <p>
+                        By partnering with healthcare providers, insurance companies and other stakeholders in the industry , we are able to offer a range of financing options that can help cover the cost of medical treatments and procedures. Whether it's through medical insurance, government programs, or other financial aid, we work with our clients to find the best solution for their individual needs.
+                                        
+                                        We  are committed to making healthcare accessible and affordable for all. Contact us today to find out if you are eligible for healthcare financing and take the first step towards securing the care you need.
+                                        
+                                        Having a medical bill and you don’t have access to financial resources? Find out if you are eligible. 
+                    </p>
+
+                    <button class="btn btn-success opacity-75 text-white align-self-center">
+                       APPLY HERE
+
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- End Service details -->
+
+        {% endblock %}

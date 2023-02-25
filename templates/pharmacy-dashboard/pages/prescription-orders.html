@@ -1,0 +1,220 @@
+{% extends './../components/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content-body">
+	<!-- row -->
+	<div class="container-fluid">
+		<div class="form-head d-flex mb-3 mb-md-4 align-items-start">
+			<button class="d-none btn btn-primary btn-rounded" data-bs-target="#add-patient-modal" data-bs-toggle="modal">Add Prescription</button>
+			<div class="input-group search-area ms-auto d-inline-flex me-3">
+				<input type="text" class="form-control" placeholder="Search here">
+				<div class=" input-group-append">
+					<button type="button" class="input-group-text"><i class="flaticon-381-search-2"></i></button>
+				</div>
+			</div>
+			<a href="javascript:void(0);" class="settings-icon"><i class="flaticon-381-settings-2 me-0"></i></a>
+		</div>
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+						<div class="table-responsive">
+							<table id="example5" class="table table-striped patient-list mb-4 dataTablesCard fs-14">
+								<thead>
+									<tr>
+										<th>
+											<div class="checkbox text-end align-self-center">
+												<div class="form-check custom-checkbox ">
+													<input type="checkbox" class="form-check-input" id="checkAll"
+														required="">
+													<label class="form-check-label" for="checkAll"></label>
+												</div>
+											</div>
+										</th>
+										<th style="min-width: 150px;">Prescription</th>
+										<th class="c-header">Patient Name</th>
+										<th class="c-header">Patient Email</th>
+										<th class="c-header">Doctor's Name</th>
+										<th class="c-header">Price</th>
+										<th class="c-header">Quote</th>
+										
+									</tr>
+								</thead>
+								<tbody>
+									{% for patient in patients %}
+									<tr>
+										<td>
+											<div class="checkbox text-end align-self-center">
+												<div class="form-check custom-checkbox ">
+													<input type="checkbox" class="form-check-input" id="customCheckBox1"
+														required="">
+													<label class="form-check-label" for="customCheckBox1"></label>
+												</div>
+											</div>
+										</td>
+									<td>
+										Brufen 10mg
+									</td>
+									<td>
+										{{patient.user.first_name}}
+										{{patient.user.last_name}}
+									</td>
+									<td>
+										shiekiragu123@gmail.com
+									</td>
+									<td>
+										doctor@gmail.com
+									</td>
+									<td class="text-primary">
+										Ksh. 200
+									</td>
+										<td class="text-primary">
+											<button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-rounded" id="quote">Place Order</button>
+									</td>
+									</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel">Qoutation Form</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+			<form method="post" action="{% url 'pharmacetical:send_order_email' %}">
+				{% csrf_token %}
+				<label for="email">Email address:</label>
+				<input type="email" name="email" id="email" required>
+				<button type="submit">Place Order</button>
+			  </form>
+			  
+		</div>
+	  </div>
+	</div>
+  </div>
+  
+<div class="modal fade" id="add-patient-modal" tabindex="" role="dialog" aria-labelledby="exampleModalLabel"
+	aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Add a prescription</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+				</button>
+			</div>
+			<div class="modal-body">
+				<form id="patient-form" action="" method="post"
+					enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="row">
+						<div class="col-xl-6">
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">Doctor's Name</label>
+								<input type="text" class="form-control" id="" placeholder="Doctor's Name"
+									name="first_name">
+							</div>
+						</div>
+
+						<div class="col-xl-6">
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">Patient's Name</label>
+								<input type="text" class="form-control" id="" placeholder="Patient's Name" name="last_name">
+							</div>
+						</div>
+						<div class="col-xl-12">
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">Patient's Email</label>
+								<input type="email" class="form-control" id="" placeholder="Patient's Email" name="email">
+							</div>
+						</div>
+
+						<div class="col-xl-12">
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">Postal Code</label>
+								<input size="16" type="text" name="postal_code" class="form-control">
+							</div>
+						</div>
+						<div class="col-xl-12">
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">Address</label>
+								<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+									name="address"></textarea>
+							</div>
+						</div>
+						<div class="col-xl-6">
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">Mobile No</label>
+								<input type="text" class="form-control" id="" placeholder="Mobile" name="phone_number">
+							</div>
+						</div>
+						<div class="col-xl-6">
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">Gender</label>
+								<select class="form-control" name="gender">
+									<option value="male">Male</option>
+									<option value="female">Female</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-xl-6">
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">City</label>
+								<input type="text" class="form-control" id="" placeholder="City" name="city">
+							</div>
+						</div>
+						<div class="col-xl-6">
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">Upload Prescription</label>
+								<input type="file" class="form-control" id="" placeholder="Profile Photo"
+									name="profile_photo">
+							</div>
+						</div>
+						<div class="col-xl-6">
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">Blood Group</label>
+								<input type="text" class="form-control" id="" placeholder="Blood Group"
+									name="blood_group">
+							</div>
+						</div>
+						<div class="col-xl-6">
+							<div class="form-group">
+								<label for="message-text" class="col-form-label">Date of Birth</label>
+								<input type="date" class="form-control" id="" placeholder="Date of Birth" name="dob">
+							</div>
+						</div>
+					</div>
+
+
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				<button type="submit" class="btn btn-primary" form="patient-form">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var modal = document.getElementById('exampleModal');
+  modal.addEventListener('shown.bs.modal', function() {
+    var nameField = document.getElementById('name');
+    nameField.focus();
+  });
+});
+
+</script>
+{% endblock %}
