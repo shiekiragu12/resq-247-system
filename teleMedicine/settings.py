@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'api',  # Api app - handles all the api stuff
     'pharmacetical',
     'patient',
+    'doctor',
 
     # Third party
     'rest_framework',
