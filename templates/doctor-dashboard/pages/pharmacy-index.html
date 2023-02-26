@@ -1,0 +1,130 @@
+{% extends './../components/base.html' %}
+{% load humanize %}
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+      }
+      
+      .container {
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ccc;
+      }
+      
+      h1 {
+        margin-bottom: 20px;
+        font-size: 36px;
+      }
+      
+      .form-group {
+        margin-bottom: 20px;
+      }
+      
+      label, input {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        box-sizing: border-box;
+      }
+      
+      input[type="text"], input[type="email"], input[type="password"] {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+      }
+      
+      button[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        border: 0;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      
+      button[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+      
+</style>
+<div class="content-body">
+	<!-- row -->
+	<div class="container-fluid">
+		<div class="form-head d-flex mb-3 mb-md-4 align-items-start">
+			<div class="me-auto d-none d-lg-block">
+				<h3 class="text-black font-w600">Welcome {{request.user.username}}</h3>
+				<p class="mb-0 fs-18">{{request.user.username}}'s Dashboard</p>
+			</div>
+
+			<div class="input-group search-area ms-auto d-inline-flex">
+				<input type="text" class="form-control" placeholder="Search here">
+				<div class="input-group-append">
+					<button type="button" class="input-group-text"><i class="flaticon-381-search-2"></i></button>
+				</div>
+			</div>
+			<a href="javascript:void(0);" class="settings-icon  ms-3"><i class="flaticon-381-settings-2 me-0"></i></a>
+		</div>
+		<div class="container">
+			{% for msg in messages %}
+			{% if msg.tags == 'error' %}
+			<div class="alert alert-danger">
+				{{msg}}
+			</div>
+			{% else %}
+			<div class="alert alert-{{msg.tags}}">
+				{{msg}}
+			</div>
+			{% endif %}
+			{% endfor %}
+			<form method="post" enctype="multipart/form-data" action="{% url 'pharmacetical:create-product' %}">
+			  {% csrf_token %}
+			  <h1>Upload Product</h1>
+			  <div class="form-group">
+				<label for="name">Product Name:</label>
+				<input type="text" id="name" name="name" required>
+			  </div>
+			  <div class="form-group">
+				<label for="name">Product Code:</label>
+				<input type="number" id="code" name="code" required>
+			  </div>
+			  <div class="form-group">
+				<label for="brand">Brand Name:</label>
+				<input type="text" id="brand" name="brand" required>
+			  </div>
+			  <div class="form-group">
+				<label for="price">Price:</label>
+				<input type="number" id="price" name="price" required>
+			  </div>
+			  <div class="form-group">
+				<label for="price">Discount:</label>
+				<input type="number" id="discount" name="discount" required>
+			  </div>
+			  <div class="form-group">
+				<label for="dom">Manufacture Product:</label>
+				<input type="text" id="dom" name="dom" required>
+			  </div>
+			  <div class="form-group">
+				<label for="description">Description:</label>
+				<input type="text" id="description" name="description" required>
+			  </div>
+			  <div class="form-group">
+				<label for="image">Product Image:</label>
+				<input type="file" name="image" accept="image/png, image/jpeg, image/jpg" required>
+			</div>
+
+			  <button type="submit">Upload Product</button>
+			</form>
+		  </div>
+	</div>
+</div>
+
+{% endblock %}
+
