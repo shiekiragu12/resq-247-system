@@ -61,7 +61,7 @@
 		<div class="form-head d-flex mb-3 mb-md-4 align-items-start">
 			<div class="me-auto d-none d-lg-block">
 				<h3 class="text-black font-w600">Welcome {{request.user.username}}</h3>
-				<p class="mb-0 fs-18">{{request.user.username}}'s Dashboard</p>
+				<p class="mb-0 fs-18">Create a prescription for patient</p>
 			</div>
 
 			<div class="input-group search-area ms-auto d-inline-flex">
@@ -87,40 +87,70 @@
 			<form method="post" enctype="multipart/form-data" action="{% url 'pharmacetical:create-product' %}">
 			  {% csrf_token %}
 			  <h1>Upload Product</h1>
-			  <div class="form-group">
-				<label for="name">Product Name:</label>
-				<input type="text" id="name" name="name" required>
+			  <div class="row">
+				<div class="form-group col-6">
+					<label for="name">Patient Name:</label>
+					<input type="text" id="name" name="p_name" required>
+				  </div>
+				  <div class="form-group col-6">
+					<label for="name">Patient Email Address:</label>
+					<input type="email" id="code" name="p_code" required>
+				  </div>
 			  </div>
-			  <div class="form-group">
-				<label for="name">Product Code:</label>
-				<input type="number" id="code" name="code" required>
+			  
+			  <div class="row">
+				<div class="form-group col-6">
+					<label for="brand">Doctor's Name:</label>
+					<input type="text" id="brand" name="d_name" value="{{request.user.username}}" required>
+				  </div>
+				  <div class="form-group col-6">
+					<label for="price">Doctor's Number:</label>
+					<input type="text" id="price" name=" d_number" required>
+				  </div>
 			  </div>
-			  <div class="form-group">
-				<label for="brand">Brand Name:</label>
-				<input type="text" id="brand" name="brand" required>
+		
+			  <div class="row">
+				<div class="form-group col-6">
+					<label for="price">Doctor's DEA:</label>
+					<input type="number" id="discount" name="dea" required>
+				  </div>
+				  <div class="form-group col-6">
+					<label for="dom">Name of medication:</label>
+					<input type="text" id="dom" name="medication" required>
+				  </div>
 			  </div>
-			  <div class="form-group">
-				<label for="price">Price:</label>
-				<input type="number" id="price" name="price" required>
+			  
+			  <div class="row">
+				<div class="form-group col-6">
+					<label for="description">Dosage:</label>
+					<input type="text" id="description" name="dosage" required>
+				  </div>
+				  <div class="form-group col-6">
+					<label for="image">Frequency:</label>
+					<input type="text" id="description" name="frequency" required>
+				</div>
 			  </div>
-			  <div class="form-group">
-				<label for="price">Discount:</label>
-				<input type="number" id="discount" name="discount" required>
-			  </div>
-			  <div class="form-group">
-				<label for="dom">Manufacture Product:</label>
-				<input type="text" id="dom" name="dom" required>
-			  </div>
-			  <div class="form-group">
-				<label for="description">Description:</label>
-				<input type="text" id="description" name="description" required>
-			  </div>
-			  <div class="form-group">
-				<label for="image">Product Image:</label>
-				<input type="file" name="image" accept="image/png, image/jpeg, image/jpg" required>
-			</div>
+			  
+			 
+			
+			<div class="form-group">
+				<label for="image">Instruction for use:</label>
 
-			  <button type="submit">Upload Product</button>
+				<input type="text" id="description" name="description" required>
+						</div>
+					
+			<div class="row">
+				<div class="form-group col-6">
+					<label for="image">Doctor Signature</label>
+					<input type="text" id="description" name="signature" required>
+				</div>
+				<div class="form-group col-6">
+					<label for="image">Date of Prescription:</label>
+					<input type="text" id="description" name="dop" required>
+				</div>
+			</div>
+			
+			  <button type="submit">Save Prescription</button>
 			</form>
 		  </div>
 	</div>

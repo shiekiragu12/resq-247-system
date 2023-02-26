@@ -14,18 +14,23 @@
                 </a>
             </li> -->
             <li>
-                <a href="{% url 'patient:dashboard' %}" class="ai-icon" aria-expanded="false">
+                <a href="{% url 'doctor:dashboard' %}" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-networking"></i>
                     <span class="nav-text">
-                        
                         Dashboard
                     </span>
                 </a>
             </li>
             <li>
-                <a href="{% url 'patient:prescription' %}" class="ai-icon" aria-expanded="false">
+                <a href="{% url 'doctor:prescription' %}" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-networking"></i>
                     <span class="nav-text">Prescription</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'patient:prescription' %}" class="ai-icon" aria-expanded="false">
+                    <i class="flaticon-381-networking"></i>
+                    <span class="nav-text">Appointments</span>
                 </a>
             </li>
             <li>
@@ -37,7 +42,31 @@
             <li>
                 <a href="{% url 'patient:medical-report' %}" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-networking"></i>
-                    <span class="nav-text">Medical Records</span>
+                    <span class="nav-text">Lab Orders</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'patient:medical-report' %}" class="ai-icon" aria-expanded="false">
+                    <i class="flaticon-381-networking"></i>
+                    <span class="nav-text">Consultation Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'patient:medical-report' %}" class="ai-icon" aria-expanded="false">
+                    <i class="flaticon-381-networking"></i>
+                    <span class="nav-text">Text Consultation </span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'patient:medical-report' %}" class="ai-icon" aria-expanded="false">
+                    <i class="flaticon-381-networking"></i>
+                    <span class="nav-text">Video Consultation </span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'patient:medical-report' %}" class="ai-icon" aria-expanded="false">
+                    <i class="flaticon-381-networking"></i>
+                    <span class="nav-text">Profile </span>
                 </a>
             </li>
             <!-- <li><a href="#" class="ai-icon" aria-expanded="false">

@@ -23,5 +23,6 @@ urlpatterns = [
   path('tracking/', include('tracking.urls')),
   path('pharmacetical/', include('pharmacetical.urls')),
   path('patient/', include('patient.urls')),
+  path('doctor/', include('doctor.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_URL) \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_URL)

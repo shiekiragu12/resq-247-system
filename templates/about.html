@@ -2,7 +2,44 @@
 {% load static %}
 {% block title %} About Us {% endblock title %}
 {% block content %}
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1020;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
 
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        z-index: 3;
+    }
+
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    } 
+
+
+</style>
         <!-- Start Page Title Area -->
         <div class="page-title-area item-bg-5">
             <div class="d-table">
@@ -25,7 +62,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="about-image">
-                            <img src="{% static 'assets/img/single-service.jpg' %}" alt="image">
+                            <img src="{% static 'assets/img/patient.png' %}" alt="image">
                         </div>
                     </div>
 
@@ -33,49 +70,238 @@
                         <div class="about-content">
                             <span>About Us</span>
                             <h3>We are on a mission to make healthcare better, affordable and accessible to all</h3>
-                            <p>ResQ247 is a leading multi-brand provider in medical tech and products. platform
-                                and information technology solutions to growing medical facilities, government,
-                                education and healthcare customers in Kenya.Our broad array of products and services range from mobility hardware &amp; assistive
-                                technology, medical devices, pharmaceutical, Nutraceutical products and software
-                                solutions online medical consultations facilitated by licensed medical practitioners
-                                and specialists</p>
+                         
                             <ul class="about-features two">
                                 <li>
-                                    <span>
+                                    <span id="span1" class="clickable-span">
                                         <i class='flaticon-doctor'></i>
-                                        Orthopedic Solutions
+                                        Women health 
                                     </span>
                                 </li>
+                                <div id="modal1" class="modal">
+
+                                    <div class="modal-content">
+                                        <div class="d-flex justify-content-between">
+                                            <h2 class="">Women health </h2>
+                                            <span class="close float-end">&times;</span>
+            
+                                        </div>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            We understand that taking care of your health can be a deeply personal and emotional experience, which is why we are dedicated to providing you with the best possible care through our virtual services.
+                                        </p>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            As a woman, you  often prioritize the needs of  your loved ones over your own health, but it's important to remember that taking care of yourself  is essential to  your  overall well-being. Our platform  makes it easier than ever to prioritize your health, without having to leave the comfort of your own home.
+                                        </p>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            Whether you're seeking support for a specific health concern, or simply looking for ways to improve your overall health and wellness,  our platform offers a range of virtual services tailored specifically to women's health needs. From virtual consultations with women's health specialists, to remote monitoring for chronic conditions, we are committed to providing you with personalized care that meets your unique needs and concerns.                                        </p>
+                                        
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                                We understand that discussing sensitive health issues can be intimidating, which is why our platform  offers a safe and confidential environment for you to discuss your concerns with a caring and compassionate healthcare provider. Our team of women's health specialists is here to listen to you, support you, and provide you with the information and resources you need to make informed decisions about your health.
+                                        </p>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            We forever remain passionate about empowering women to take charge of their health and live their best lives. We believe that every woman deserves access to high-quality healthcare, no matter where she lives or what her circumstances may be. So why wait? Take the first step towards a healthier, happier you today and schedule a virtual consultation with one of our women's health specialists. We're here for you every step of the way.
+                                        </p>
+                                        
+                                        
+                                        <p class="btn btn-danger text-white align-self-center">
+                                            Book Appointment
+                     
+                                         </p>
+                                        </div>
+                                </div>
+
+
                                 <li>
-                                    <span>
+                                    <span id="span2" class="clickable-span">
                                         <i class='flaticon-worm'></i>
-                                        Chronic Disease
+                                        Covid-19 tests 
                                     </span>
                                 </li>
+
+                                <div id="modal2" class="modal">
+
+                                    <div class="modal-content">
+                                        <div class="d-flex justify-content-between">
+                                            <h2 class="">Covid-19 tests </h2>
+                                            <span class="close float-end">&times;</span>
+            
+                                        </div>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            We understand that the COVID-19 pandemic has been a difficult and emotional time for everyone. That's why we're here to provide you with fast, reliable, and compassionate COVID-19 testing services from the safety and comfort of your own home.
+                                        </p>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            As the world continues to face the challenges of COVID-19, we want to help you feel safe, secure, and in control of your health. Whether you're experiencing symptoms or you've been exposed to someone who has COVID-19, our team will  guide you through the testing process with care and compassion.                                        </p>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            We understand that getting tested for COVID-19 can be stressful, but we want to reassure you that our healthcare providers are here to support you every step of the way. We offer a range of COVID-19 testing options, including self-administered at-home tests and mail-in laboratory tests, all with the goal of making testing as easy and stress-free as possible.
+                                        
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            We believe health and their safety is a fundamental human right. That's why we've made it our mission to provide you with fast, reliable, and compassionate testing services, without having to leave the safety of your home.
+                                        </p>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            We know that waiting for COVID-19 test results can be an anxious time, which is why our team is dedicated to providing you with your test results as quickly as possible. Our goal is to help you make informed decisions about your health and to give you the peace of mind you need to move forward during these challenging times.
+                                        </p>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            So, if you have any concerns about COVID-19, please don't hesitate to schedule a virtual consultation with one of our healthcare providers. We're here to support you, to listen to you, and to help you navigate this difficult time with care and compassion.
+                                        </p>
+                                        
+                                        <p class="btn btn-danger text-white align-self-center">
+                                            Book Appointment
+                     
+                                         </p>
+                                        </div>
+                                </div>
+
                                 <li>
-                                    <span>
+                                    <span id="span3" class="clickable-span">
                                         <i class='flaticon-cough'></i>
-                                        COVID-19 Test
+                                        Men’s health 
                                     </span>
                                 </li>
+
+                                <div id="modal3" class="modal">
+
+                                    <div class="modal-content">
+                                        <div class="d-flex justify-content-between">
+                                            <h2 class="">Men's Health</h2>
+                                            <span class="close float-end">&times;</span>
+            
+                                        </div>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            We understand that taking care of your health can be a deeply personal and emotional experience, which is why we are dedicated to providing you with compassionate and personalized care through our virtual services.                                        </p>
+                                       
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            As men, we often feel the pressure to be strong and independent, but it's important to remember that asking for help when it comes to our health is a sign of strength, not weakness. Our telemedicine platform offers a range of services tailored specifically to men's health needs, from virtual consultations with men's health specialists to remote monitoring for chronic conditions.
+                                        </p>  
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            We understand that discussing sensitive health issues can be intimidating, but our telemedicine platform offers a safe and confidential environment for you to discuss your concerns with a caring and compassionate healthcare provider. Our team of men's health specialists is here to listen to you, support you, and provide you with the information and resources you need to make informed decisions about your health.
+                                        </p>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            We are passionate about empowering men to take charge of their health and live their best lives. We believe that every man deserves access to high-quality healthcare, no matter where he lives or what his circumstances may be. So why wait? Take the first step towards a healthier, happier you today and schedule a virtual consultation with one of our men's health specialists. We're here for you every step of the way.
+                                        </p>
+                                       
+                                        
+                                        <p class="btn btn-danger text-white align-self-center">
+                                            Book Appointment
+                     
+                                         </p>
+                                        </div>
+                                </div>
+
                                 <li>
-                                    <span>
+                                    <span id="span4" class="clickable-span">
                                         <i class='flaticon-blood-test'></i>
-                                        Diabetic Test
+                                        Chronic medical conditions 
                                     </span>
                                 </li>
+
+                                <div id="modal4" class="modal">
+
+                                    <div class="modal-content">
+                                        <div class="d-flex justify-content-between">
+                                            <h2 class="">Chronic medical conditions </h2>
+                                            <span class="close float-end">&times;</span>
+            
+                                        </div>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            We take a holistic approach to your care, considering your lifestyle, emotional well-being, and overall quality of life.
+                                        </p>                                       
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            Our team of healthcare professionals includes doctors, nurses, and specialists who are experts in managing chronic conditions such as diabetes, hypertension, heart disease, and more. They will work with you to develop a personalized care plan that meets your unique needs and goals.
+                                        </p>  
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            Our telemedicine platform allows you to access healthcare services from the comfort of your home or office, without the need for travel or waiting in crowded waiting rooms. You can schedule virtual appointments with your healthcare provider at a time that is convenient for you, and receive your medications and medical supplies delivered right to your doorstep.
+                                        </p>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            Our remote monitoring services allow you to track your vital signs, such as blood pressure and blood sugar levels, and share this information with your healthcare provider for real-time monitoring and adjustment of your care plan because we understand that living with a chronic condition can be stressful and challenging, but you don't have to face it alone. Our telemedicine platform provides you with the support and resources you need to manage your condition and improve your quality of life.
+                                        </p>
+                                       
+                                        
+                                        <p class="btn btn-danger text-white align-self-center">
+                                            Request a call back 
+                     
+                                         </p>
+                                        </div>
+                                </div>
+
+
                                 <li>
-                                    <span>
+                                    <span id="span5" class="clickable-span">
                                         <i class='flaticon-family'></i>
-                                        Family Solutions
+                                        Pediatrics
                                     </span>
                                 </li>
+
+                                <div id="modal5" class="modal">
+
+                                    <div class="modal-content">
+                                        <div class="d-flex justify-content-between">
+                                            <h2 class="">Pediatrics </h2>
+                                            <span class="close float-end">&times;</span>
+            
+                                        </div>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            We understand that  being a parent is a beautiful journey, but it can also be challenging, especially when it comes to taking care of your child's health. We understand that nothing is more important to you than the health and well-being of your child.                                        </p>                                       
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            On our platform, we provide you with the highest quality care for your child, no matter where you are. We understand that sometimes, a trip to the doctor's office can be overwhelming, especially for children during those odd hours , That's why we offer virtual consultations with our paediatric specialists from the comfort of your home or office.
+                                        </p>  
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            We know that as a parent, your child's health is your top priority, and it can be emotional and stressful when your child is sick. That's why our team of paediatricians, nurses, and specialists are here to provide you with the support and care you need, every step of the way.                                        </p>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            Our platform offers a range of services designed to meet the unique needs of your child. From preventive care to acute illness management, we are here to provide you with the personalized care and attention your child deserves.
+                                        </p>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            We know that every child is unique, and that's why our pediatricians take a holistic approach to care, considering not just your child's physical health, but also their emotional and developmental wellbeing. 
+                                        </p>
+                                        <div class="d-flex justify-content-evenly">
+                                            <p class="btn btn-danger text-white align-self-center">
+                                                Request a call back 
+                         
+                                             </p>
+                                             <p class="btn btn-danger text-white align-self-center">
+                                                Book appointment 
+                         
+                                             </p>
+                                        </div>
+                                       
+                                        </div>
+                                </div>
+
+
                                 <li>
-                                    <span>
+                                    <span id="span6" class="clickable-span">
                                         <i class='flaticon-insurance'></i>
-                                        Medical Questions
+                                       Virtual care 
                                     </span>
                                 </li>
+
+                                <div id="modal6" class="modal">
+
+                                    <div class="modal-content">
+                                        <div class="d-flex justify-content-between">
+                                            <h2 class="">Virtual care  </h2>
+                                            <span class="close float-end">&times;</span>
+            
+                                        </div>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            it's a lifeline that connects patients with their healthcare providers when they need it the most. For many patients, telemedicine has been a source of comfort and reassurance, allowing them to receive the care they need while staying safe and comfortable in their own homes. 
+                                        </p>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            For patients who are dealing with chronic illnesses or disabilities, telemedicine can be a game-changer. It provides you  with the flexibility and convenience they need to manage their health conditions effectively, without the stress and inconvenience of traveling to a healthcare facility. It's a lifeline that connects you  with your healthcare providers, helping them to stay on top of their medications, monitor their symptoms, and get the support you  need to stay healthy.
+                                        </p>  
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            For patients who live in rural or remote areas, telemedicine can be a godsend. It will provide you  with access to healthcare services that might otherwise be out of reach, connecting you  with doctors and specialists who can provide you  with the care you  need. It's a lifeline that bridges the gap between patients and healthcare providers, ensuring that everyone has access to the care they need, regardless of where they live and social economic status.
+                                        </p>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            And for patients who are dealing with the challenges of aging, telemedicine can be a source of comfort and companionship. It provides them with a connection to the outside world, helping them to stay connected with their healthcare providers and their loved ones. It's a lifeline that helps them to stay engaged, to stay connected, and to stay healthy.                                        </p>
+                                        <p class="" style="padding: 0.5rem;border-radius: 10px;margin-bottom: 0;">
+                                            In these difficult times, telemedicine is more than just a technology - it's a lifeline that connects us all. It's a reminder that, even when we're apart, we're all in this together. So let's embrace the power of telemedicine, and let's work together to build a brighter, healthier future for us all.
+                                        </p>
+                                       
+                                       
+                                        </div>
+                                </div>
+
+
                             </ul>
                         </div>
                     </div>
@@ -90,27 +316,37 @@
             <div class="container">
                
               <div class="service-details-content">
+                <h4>ABOUT US:</h4>
+                <p>
+                    ResQ247 is a leading multi-brand provider in medical technology and products in Kenya. We offer a comprehensive platform and cutting-edge technological solutions in the medical industry to both healthcare providers and patients. Our broad array of products and services are designed to enhance the quality of care and improve health outcomes for patients.
+                    </p>
+                   <p>
+                    Our virtual care and online medical consultancy services enable patients to access medical consultations and support from the comfort of their own homes. Our licensed medical practitioners and specialists provide personalized care and support, using the latest technologies to ensure that patients receive the highest quality care.
+
+                   </p>
+                   <p>
+                    We also offer mobility hardware and assistive technology to support patients with disabilities, enabling them to live more independent lives. Our range of medical devices includes state-of-the-art equipment for diagnostic testing, monitoring, and treatment, helping healthcare providers to deliver the best possible care to their patients.
+
+                   </p>
+                   <p>
+                    Furthermore, we offer pharmaceutical and nutraceutical products to support the health and wellbeing of patients. Our licensed medical practitioners and specialists provide expert advice and guidance to help patients make informed decisions about their health.
+                   </p>
+                   
+                   <p>
+                    At ResQ247, we are committed to delivering the best possible care to our patients. Our cutting-edge technological solutions, combined with our team of experienced medical professionals, enable us to provide personalized care and support that is tailored to the individual needs of each patient. Contact us today to learn more about our products and services or to schedule an appointment.
+                   </p>
+                <h4>WHO WE ARE:</h4>
+                        <p>We help medical facilities deploy sustainable digital healthcare solutions to advance patient outcomes. ResQ247 is at the forefront of making virtual care and telehealth a reality to all .</p>
                     <h4>Mission:</h4>
-                        <p>To improve access to healthcare for all by leveraging technology and expertise to
-                            provide high-quality telehealth and telemedicine services.</p>
-                    <h4>Values:</h4>
-                        <ul>
-                            <li>Patient-cantered care: We prioritizes the needs and satisfaction of our
-                                patients, striving to provide personalized and compassionate care through
-                                telehealth &amp; telemedicine.</li>
-                            <li>Innovation: ResQ247 is committed to staying at the forefront of telemedicine
-                                technology, continuously improving our services and processes to enhance
-                                patient outcomes.</li>
-                            <li>Accessibility: We strive to make healthcare more accessible and affordable
-                                for everyone, regardless of location or circumstances.</li>
-                            <li>Privacy and security: ResQ247 is dedicated to protecting the privacy and
-                                security of patient data, adhering to strict security and privacy standards in all
-                                aspects of the industry.</li>
-                            <li>Collaboration: ResQ247 values partnerships and collaboration with
-                                healthcare providers, patients, and industry partners to advance the field of
-                                telemedicine and improve patient outcomes.</li>
-                        
-                        </ul>
+                        <p>Improve access to healthcare for all by leveraging technology and expertise to provide high-quality telehealth and telemedicine services.</p>
+                        <h4>Vision:</h4>
+                        <p>
+                            To create a world where access to high-quality healthcare is not limited by geography or socioeconomic status, and where technology-enabled healthcare solutions are a standard part of the healthcare ecosystem, improving patient outcomes and quality of life.
+                        </p> 
+                       <h4>Values:</h4>
+                        <p>
+                            Accessibility, innovation, patient-centeredness, quality, collaboration, and empathy
+                        </p>
                     <h4>Scale Patient Safety, Improve Staff Efficiency, and Reduce Burnout</h4>
                     <p>ResQ247 platform are of high interest to healthcare organizations looking to improve
                         care quality, patient safety amid rising staff shortages and increasing patient loads.
@@ -183,5 +419,34 @@
             </div>
         </div>
         <!-- End Service details -->
-
+        <script>
+            // Get all the clickable spans
+            const clickableSpans = document.querySelectorAll('.clickable-span');
+        
+            // Loop through the clickable spans and attach a click event listener to each one
+            clickableSpans.forEach(span => {
+                span.addEventListener('click', function () {
+                    // Get the ID of the clicked span
+                    const spanId = this.id;
+        
+                    // Get the ID of the modal corresponding to the clicked span
+                    const modalId = `modal${spanId.slice(4)}`;
+        
+                    // Get the modal element
+                    const modal = document.getElementById(modalId);
+        
+                    // Get the close button element inside the modal
+                    const closeButton = modal.querySelector('.close');
+        
+                    // When the user clicks on the span, display the corresponding modal
+                    modal.style.display = 'block';
+        
+                    // When the user clicks on the close button, hide the modal
+                    closeButton.addEventListener('click', function () {
+                        modal.style.display = 'none';
+                    });
+                });
+            });
+        
+        </script>
         {% endblock %}
