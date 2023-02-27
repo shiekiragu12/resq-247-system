@@ -7,7 +7,7 @@
 	<div class="container-fluid">
 		<div class="text-end mb-3">
 			<a href="javascript:void(0);" class="btn btn-primary btn-rounded add-appointment">+ Book Appointment</a>
-			<a href="{% url 'doctors' facility_id=1 %}" class="btn btn-primary btn-rounded">Doctor Schedule</a>
+			<a href="#" class="btn btn-primary btn-rounded">Doctor Schedule</a>
 		</div>
 		<div class="row">
 			<div class="col-xl-12">
@@ -197,21 +197,19 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form id="appointment-form" action="{% url 'appointments_create' request.facility.id %}" method="post">
+					<form id="appointment-form" action="{% url 'doctor:create_appointment' %}" method="post">
 						{% csrf_token %}
 						<div class="row form-material">
 							<div class="col-xl-12">
 								<div class="form-group">
 									<label for="message-text" class="col-form-label">Patient</label>
-									<select class="form-control" name="patient" required>
-										<option value="">Select patient</option>
-										{% for patient in patients %}
-										<option value="{{patient.id}}">
-											{{patient.user.first_name}}
-											{{patient.user.last_name}} - {{patient.user.profile.phone_number}}
-										</option>
-										{% endfor %}
-									</select>
+									<input type="text" class="form-control" name="patient">
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="form-group">
+									<label for="message-text" class="col-form-label">Patient Email</label>
+									<input type="text" class="form-control" name="p_email">
 								</div>
 							</div>
 							<div class="col-xl-12">
@@ -237,25 +235,13 @@
 							<div class="col-xl-6">
 								<div class="form-group">
 									<label for="message-text" class="col-form-label">Consulting Doctor:</label>
-									<select class="form-control" name="doctor" required>
-										<option>Select doctor</option>
-										{% for doctor in doctors %}
-										<option value="{{doctor.id}}">
-											Dr. {{doctor.user.first_name}} {{doctor.user.last_name}}
-										</option>
-										{% endfor %}
-									</select>
+									<input type="text" class="form-control" name="doctor">
 								</div>
 							</div>
 							<div class="col-xl-6">
 								<div class="form-group">
 									<label for="message-text" class="col-form-label">Injury/Condition</label>
-									<select class="form-control" name="condition">
-										<option value="">Select condition(injury)</option>
-										{% for cond in conditions %}
-										<option value="{{cond.id}}">{{cond.name}}</option>
-										{% endfor %}
-									</select>
+									<input type="text" class="form-control" name="injury">
 								</div>
 							</div>
 							<div class="col-xl-12">

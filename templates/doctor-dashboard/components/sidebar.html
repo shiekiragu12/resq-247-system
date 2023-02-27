@@ -24,11 +24,17 @@
             <li>
                 <a href="{% url 'doctor:prescription' %}" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-networking"></i>
-                    <span class="nav-text">Prescription</span>
+                    <span class="nav-text">Give Prescription</span>
                 </a>
             </li>
             <li>
-                <a href="{% url 'patient:prescription' %}" class="ai-icon" aria-expanded="false">
+                <a href="{% url 'doctor:view_prescription' %}" class="ai-icon" aria-expanded="false">
+                    <i class="flaticon-381-networking"></i>
+                    <span class="nav-text">View Prescription</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'doctor:appointment' %}" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-networking"></i>
                     <span class="nav-text">Appointments</span>
                 </a>

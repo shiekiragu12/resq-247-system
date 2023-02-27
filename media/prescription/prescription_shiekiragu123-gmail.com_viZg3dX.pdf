@@ -1,0 +1,68 @@
+<form method="post" enctype="multipart/form-data" action="/doctor/create-prescription">
+    
+    <h1>Prescription </h1>
+    <div class="row">
+      <div class="form-group col-6">
+          <label for="name">Patient Name:</label>
+          <input type="text" id="name" name="p_name" required>
+        </div>
+        <div class="form-group col-6">
+          <label for="name">Patient Email Address:</label>
+          <input type="email" id="code" name="p_code" required>
+        </div>
+    </div>
+    
+    <div class="row">
+      <div class="form-group col-6">
+          <label for="brand">Doctor's Name:</label>
+          <input type="text" id="brand" name="d_name" value="" required>
+        </div>
+        <div class="form-group col-6">
+          <label for="price">Doctor's Number:</label>
+          <input type="text" id="price" name=" d_number" required>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-6">
+          <label for="price">Doctor's DEA:</label>
+          <input type="number" id="discount" name="dea" required>
+        </div>
+        <div class="form-group col-6">
+          <label for="dom">Name of medication:</label>
+          <input type="text" id="dom" name="medication" required>
+        </div>
+    </div>
+    
+    <div class="row">
+      <div class="form-group col-6">
+          <label for="description">Dosage:</label>
+          <input type="text" id="description" name="dosage" required>
+        </div>
+        <div class="form-group col-6">
+          <label for="image">Frequency:</label>
+          <input type="text" id="description" name="frequency" required>
+      </div>
+    </div>
+    
+   
+  
+  <div class="form-group">
+      <label for="image">Instruction for use:</label>
+
+      <input type="text" id="description" name="description" required>
+              </div>
+          
+  <div class="row">
+      <div class="form-group col-6">
+          <label for="image">Doctor Signature</label>
+          <input type="text" id="description" name="signature" required>
+      </div>
+      <div class="form-group col-6">
+          <label for="image">Date of Prescription:</label>
+          <input type="date" id="description" name="dop" required>
+      </div>
+  </div>
+  
+    <button type="submit">Save Prescription</button>
+  </form>

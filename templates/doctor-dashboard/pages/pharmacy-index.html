@@ -84,9 +84,9 @@
 			</div>
 			{% endif %}
 			{% endfor %}
-			<form method="post" enctype="multipart/form-data" action="{% url 'pharmacetical:create-product' %}">
+			<form method="post" enctype="multipart/form-data" action="{% url 'doctor:create-prescription' %}">
 			  {% csrf_token %}
-			  <h1>Upload Product</h1>
+			  <h1>Prescription </h1>
 			  <div class="row">
 				<div class="form-group col-6">
 					<label for="name">Patient Name:</label>
@@ -146,7 +146,7 @@
 				</div>
 				<div class="form-group col-6">
 					<label for="image">Date of Prescription:</label>
-					<input type="text" id="description" name="dop" required>
+					<input type="date" id="description" name="dop" required>
 				</div>
 			</div>
 			

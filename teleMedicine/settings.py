@@ -10,10 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
+from django.conf import settings
 from pathlib import Path
+from django.core.files.storage import FileSystemStorage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_URL = 'http://localhost:8000/'
 TEMPLATES_DIR = BASE_DIR / 'templates'
 
 # Quick-start development settings - unsuitable for production
@@ -165,7 +168,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = 'staticfiles/'
 STATICFILES_DIRS = [BASE_DIR / 'static', ]
 
-MEDIA_URL = 'media/'
+MEDIA_URL ='media/'
 MEDIA_ROOT = 'media/'
 
 # Default primary key field type
