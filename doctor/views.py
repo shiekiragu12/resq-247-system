@@ -22,7 +22,9 @@ def prescription(request):
     return render(request, template_name='doctor-dashboard/pages/pharmacy-index.html', context={})
 
 def appointment(request):
-    return render(request, template_name='doctor-dashboard/pages/appointment.html', context={})
+    context={}
+    context['appointment']=Appointment.objects.all()
+    return render(request, template_name='doctor-dashboard/pages/appointment.html', context=context)
 
 def view_prescription(request):
     context={}
@@ -43,7 +45,7 @@ def create_appointment(request):
 
         # Send the email with the prescription PDF attached
         subject = 'Doctor appointment with '+ doctor
-        body = 'Hello,'+ patient +' your appointment is on' + date +'kindly avail yourself'
+        body = 'Hello,'+ patient +' your appointment is on ' + date + ' kindly avail yourself'
         email = EmailMessage(subject, body, to=[p_email])
         email.send()       
 

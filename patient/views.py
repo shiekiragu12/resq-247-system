@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import *
 from facilities.models import *
+from doctor.models import *
 from django.db.models import Q
 
 # Create your views here.
@@ -19,6 +20,11 @@ def medical(request):
 def share_pdf(request):
     context = {}
     context['patients'] = Patient.objects.all()
+    try:
+        context['prescription'] = PrescriptionPatient.objects.get(p_code =request.user.email)
+    except Prescription.DoesNotExist:
+        prescription = None
+    
     pdf_url = request.GET.get('url')
     context = {'pdf_url': pdf_url}
     return render(request, template_name='patient-dashboard/pages/patient-list.html', context=context)

@@ -7,7 +7,7 @@
 	<div class="container-fluid">
 		<div class="form-head d-flex mb-3 mb-md-4 align-items-start">
 			<button class="d-none btn btn-primary btn-rounded" data-bs-target="#add-patient-modal" data-bs-toggle="modal">Add Prescription</button>
-			<h2>Prescriptions{{request.user.email}}</h2>
+			<h2>Prescriptions</h2>
 			<div class="input-group search-area ms-auto d-inline-flex me-3">
 				<input type="text" class="form-control" placeholder="Search here">
 				<div class="input-group-append">
@@ -36,13 +36,13 @@
 										<th style="min-width: 150px;">Patient ID</th>
 										<th class="c-header">Patient Name</th>
 										<th class="c-header">Blood Group</th>
-										<th class="c-header">Date of Birth</th>
+										<th class="c-header">Email Address</th>
 										<th class="c-header">Prescription</th>
 										<th class="c-header">Created On</th>
 									</tr>
 								</thead>
 								<tbody>
-									{% for patient in patients %}
+									{% for patient in prescription %}
 									<tr>
 										<td>
 											<div class="checkbox text-end align-self-center">
@@ -60,14 +60,13 @@
 											<span>
 												<img src="{{patient.user.profile.profile_photo.url}}" alt="">
 											</span>
-											<span class="text-nowrap ms-2">{{patient.user.first_name}}
-												{{patient.user.last_name}}</span>
+											<span class="text-nowrap ms-2">{{patient.p_name}}</span>
 										</td>
 										<td class="text-primary">
 											{{patient.blood_group}}
 										</td>
 										<td class="text-primary">
-											{{patient.dob}}
+											{{patient.p_code}}
 										</td>
 										<td class="text-primary">
 											
